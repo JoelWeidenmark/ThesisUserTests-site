@@ -75,11 +75,7 @@ const Hi = styled.h1`
           <CenterPane>
             <main>{children}</main>
           </CenterPane>
-          <RightPane>
-            <RightPanel>
-
-            </RightPanel>
-          </RightPane>
+          
         </ContentPanelsWrapper>
       </LayoutWrapper>
       <Footer>
