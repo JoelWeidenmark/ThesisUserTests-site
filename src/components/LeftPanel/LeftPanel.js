@@ -1,21 +1,21 @@
 import React from 'react'
 
 import styled from "styled-components"
+import ProfileBar from "./ProfileBar/ProfileBar"
 
 const LeftPanelWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: white;
     padding: 5px;
 `
 
-const ProfileBar = styled.div`
+const ProfileWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    height: 50px;
-    border: 1px solid;
+    align-items: center;
+    width: 100%;
 `
 
 const LeftPanelAdBox = styled.div`
@@ -28,9 +28,11 @@ const LeftPanelAdBox = styled.div`
 const LeftPanel = () => {
     return (
         <LeftPanelWrapper>
-            <ProfileBar>
-                ProfileBar
-            </ProfileBar>
+            <ProfileWrapper>
+                <ProfileBar>
+
+                </ProfileBar>
+            </ProfileWrapper>
             <LeftPanelAdBox>
                 AdBox
             </LeftPanelAdBox>

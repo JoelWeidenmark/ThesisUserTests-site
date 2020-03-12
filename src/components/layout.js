@@ -1,15 +1,14 @@
 
 import React from "react";
+import "./layout.css"
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
-import { ThemeProvider } from "styled-components";
 import MainFeed from "./MainFeed/MainFeed.js";
 import LeftPanel from "./LeftPanel/LeftPanel";
 import RightPanel from "./RightPanel/RightPanel";
 
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,16 +20,6 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
-const Button = styled.button`
-    background: transparent;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
-    `
-
 
 
 const LayoutWrapper = styled.div`
@@ -44,6 +33,7 @@ const ContentPanelsWrapper = styled.div`
   flex-direction: row;
   height: 90vh;
   width: 80vw;
+  max-width: 830px;
   background-color: ${props => props.theme.fbGray}
 `
 
@@ -87,7 +77,7 @@ const Hi = styled.h1`
           </CenterPane>
           <RightPane>
             <RightPanel>
-              
+
             </RightPanel>
           </RightPane>
         </ContentPanelsWrapper>

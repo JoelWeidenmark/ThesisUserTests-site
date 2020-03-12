@@ -1,12 +1,11 @@
 import React from 'react'
-import Post from "../PostText/PostText";
+import Post from "../Post/PostText/PostText";
 
 import styled from "styled-components"
 
 const FeedWrapper = styled.div`
     width: 100%;
     height: 100%;
-    background-color: white;
     padding: 5px;
 `
 
