@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faShare } from "@fortawesome/free-solid-svg-icons";
+
 
 const CommentWrapper = styled.div`
     width:100%;
@@ -45,8 +46,11 @@ const LikeAndAnswerWrapper = styled.div`
     flex-direction: row;
     margin-left: 2px;
     margin-top: 2px;
+    color: ${props => props.liked ? "#4b7fe8" : ''};
+
     > p{
         margin-left: 10px;
+        
     }
 
 `
@@ -54,10 +58,18 @@ const LikeAndAnswerWrapper = styled.div`
 
 
 const PostComments = (props) => {
-    const [likeCount, setLikeCount] = useState(1);
+    const [liked, setLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(null);
 
-    const incrementCommentState = () => {
-        setLikeCount(likeCount + 1)
+    
+
+    
+
+    const likeComment = () => {
+        setLikeCount(props.comment.Likes)
+        if(!liked) setLikeCount(likeCount + 1);
+        setLikeCount(likeCount + 1 );
+        setLiked(!liked);
     }
 
     return (
@@ -69,12 +81,15 @@ const PostComments = (props) => {
                     <span>{props.comment.Writer} </span>
                     {props.comment.Comment}
                 </TextBox>
-                <LikeAndAnswerWrapper>
-                    {likeCount}
-                    <p>
-                        <FontAwesomeIcon icon={faThumbsUp} onClick={() => incrementCommentState()} />
-                    </p>
-                </LikeAndAnswerWrapper>
+                {props.comment.Likes}
+                {liked ? 
+                    <LikeAndAnswerWrapper liked>
+                        <FontAwesomeIcon icon={faThumbsUp} onClick={() => likeComment()} />
+                    </LikeAndAnswerWrapper> 
+                    : 
+                    <LikeAndAnswerWrapper>
+                        <FontAwesomeIcon icon={faThumbsUp} onClick={() => likeComment(likeComment)} />
+                    </LikeAndAnswerWrapper>}
             </ColumnWrapper> 
         </CommentWrapper>
     )

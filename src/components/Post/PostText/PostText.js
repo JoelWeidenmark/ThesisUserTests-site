@@ -73,8 +73,8 @@ const WriteCommentWrapper = styled.div`
 const Post = () => {
 
     const [commentList, setCommentList] = useState([
-        {Writer: "Namess", Comment: "ASDFASF"},
-        {Writer: "Joel", Comment:"Cheese"} 
+        {Writer: "Namess", Comment: "ASDFASF", Likes: 3},
+        {Writer: "Joel", Comment:"Cheese", Likes: 2} 
     ]);
     const [count, setCount] = useState(0);
 

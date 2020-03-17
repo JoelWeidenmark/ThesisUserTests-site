@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
     }
   `)
 
-
 const LayoutWrapper = styled.div`
   display: flex;
   width: 100vw;
@@ -57,11 +56,6 @@ const Footer = styled.div`
   flex-direction: row;
   background-color: ${props => props.theme.fbBlue};
   height: 5vh;
-`
-
-
-const Hi = styled.h1`
-  color: ${props => props.theme.fbBlue};
 `
 
   return (
