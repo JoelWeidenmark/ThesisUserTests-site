@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useContext} from 'react'
 import styled from "styled-components";
 import PostProfileBar from "../PostProfileBar/PostProfileBar"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faShare } from "@fortawesome/free-solid-svg-icons";
 import PostComment from "../PostComment/PostComments"
 import PostWriteComment from "../PostWriteComment/PostWriteComment"
+import {LocalStateContext} from "../../../context/LocalStateContext"
 
 
 
@@ -71,11 +72,8 @@ const WriteCommentWrapper = styled.div`
 
 
 const Post = () => {
-
-    const [commentList, setCommentList] = useState([
-        {Writer: "Namess", Comment: "ASDFASF", Likes: 3},
-        {Writer: "Joel", Comment:"Cheese", Likes: 2} 
-    ]);
+    const {postsState} = useContext(LocalStateContext)
+    const [commentList, setCommentList] = useState(postsState.Posts[0].Comments);
     const [count, setCount] = useState(0);
 
     const incrementLikes = () => {
@@ -94,8 +92,7 @@ const Post = () => {
                 </PostProfileBar>
             </ProfileBar>
             <TextContent>
-                <span>Name Surname </span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.
+                {postsState.Posts[0].Text}
             </TextContent>
             <LikesAndComments>
                 {/* <p>{count}</p> */}

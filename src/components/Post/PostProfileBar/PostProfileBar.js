@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from "styled-components"
+import {LocalStateContext} from "../../../context/LocalStateContext"
 
 const ProfileWrapper = styled.div`
     width: 100%;
@@ -35,6 +36,8 @@ const TimeStamp = styled.p`
 `
 
 const PostProfileBar = () => {
+    const {postsState} = useContext(LocalStateContext)
+
     return (
         <ProfileWrapper>
             <ProfileImage>
@@ -42,10 +45,10 @@ const PostProfileBar = () => {
             </ProfileImage>
             <NameAndTime>
                 <ProfileName>
-                    Name Surname
+                    {postsState.Posts[0].Name}
                 </ProfileName>
                 <TimeStamp>
-                    17:20
+                    {postsState.Posts[0].TimeStamp}
                 </TimeStamp>
             </NameAndTime>
             

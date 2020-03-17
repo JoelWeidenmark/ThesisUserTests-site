@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import MainFeed from "./MainFeed/MainFeed.js";
 import LeftPanel from "./LeftPanel/LeftPanel";
 import RightPanel from "./RightPanel/RightPanel";
+import {PostsStateProvider} from "../context/LocalStateContext";
 
 import Header from "./header"
 
@@ -59,30 +60,34 @@ const Footer = styled.div`
 `
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <LayoutWrapper>
-        <ContentPanelsWrapper>
-          <LeftPane>
-            <LeftPanel></LeftPanel>
-          </LeftPane>
-          <CenterPane>
-            <main>{children}</main>
-          </CenterPane>
-          <RightPane>
-            <RightPanel>
-
-            </RightPanel>
-          </RightPane>
-        </ContentPanelsWrapper>
-      </LayoutWrapper>
-      <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Footer>
+    <PostsStateProvider>
       
-    </>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        
+          <LayoutWrapper>
+            <ContentPanelsWrapper>
+              <LeftPane>
+                <LeftPanel></LeftPanel>
+              </LeftPane>
+              
+              <CenterPane>
+                <main>{children}</main>
+              </CenterPane>
+              <RightPane>
+                <RightPanel>
+
+                </RightPanel>
+              </RightPane>
+            </ContentPanelsWrapper>
+          </LayoutWrapper>
+        
+        <Footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </Footer>
+      
+    </PostsStateProvider>
   )
 }
 

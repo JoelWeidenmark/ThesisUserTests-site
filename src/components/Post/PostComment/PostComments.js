@@ -78,8 +78,8 @@ const PostComments = (props) => {
             <ColumnWrapper>
                 <TextBox>
                     
-                    <span>{props.comment.Writer} </span>
-                    {props.comment.Comment}
+                    <span>{props.comment.Name} </span>
+                    {props.comment.Text}
                 </TextBox>
                 {props.comment.Likes}
                 {liked ? 

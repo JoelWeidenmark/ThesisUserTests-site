@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faComment, faShare ,faSend, faPlay, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faComment, faShare, faPlay, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Textarea from 'react-expanding-textarea'
 
 const CommentWrapper = styled.div`
@@ -91,7 +91,6 @@ const PostWriteComment = (props) => {
                     />
 
                     <SendCommentButton onClick={handleClick}><FontAwesomeIcon icon={faPlay} /></SendCommentButton>
-                    <FontAwesomeIcon icon={faSend} />
                 </TextBox>
             </ColumnWrapper> 
         </CommentWrapper>
