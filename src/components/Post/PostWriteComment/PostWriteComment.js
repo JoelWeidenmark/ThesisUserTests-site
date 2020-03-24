@@ -1,8 +1,9 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useContext} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faShare, faPlay, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Textarea from 'react-expanding-textarea'
+import {LocalStateContext} from "../../../context/LocalStateContext"
 
 const CommentWrapper = styled.div`
     width:100%;
@@ -24,7 +25,13 @@ const ProfileImage = styled.div`
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 1px solid #606770;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    overflow: hidden;
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `
 
 const TextBox = styled.div`
@@ -67,22 +74,22 @@ const SendCommentButton = styled.div`
 
 
 const PostWriteComment = (props) => {
+    const {addPostComment, getProfileImage} = useContext(LocalStateContext)
     const nameForm = useRef(null);
-    const handleClick  = () => {
+
+    const postCommentClick  = () => {
         const formValue = nameForm.current.value;
         if(formValue){
+            addPostComment(props.postInfo.ID, formValue);
             nameForm.current.value = "";
-            props.parentCallback({
-                Writer: "Name Namesson",
-                Comment: formValue,
-                Likes: 0
-            });
         }
     }
 
     return (
         <CommentWrapper>
-            <ProfileImage></ProfileImage>
+            <ProfileImage>
+                <img src={require(`../../../images/${getProfileImage('Test User')}.jpg`)}></img>
+            </ProfileImage>
             <ColumnWrapper>
                 <TextBox>
                     <TextBoxes
@@ -90,7 +97,7 @@ const PostWriteComment = (props) => {
                         placeholder="Write a comment ..."
                     />
 
-                    <SendCommentButton onClick={handleClick}><FontAwesomeIcon icon={faPlay} /></SendCommentButton>
+                    <SendCommentButton onClick={postCommentClick}><FontAwesomeIcon icon={faPlay} /></SendCommentButton>
                 </TextBox>
             </ColumnWrapper> 
         </CommentWrapper>

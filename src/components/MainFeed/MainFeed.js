@@ -1,19 +1,29 @@
-import React from 'react'
-import Post from "../Post/PostText/PostText";
-
+import React, {useContext, useState, useEffect} from 'react'
+import PostText from "../Post/PostText/PostText";
+import AddPost from "../AddPost/AddPost";
+import {LocalStateContext} from "../../context/LocalStateContext"
 import styled from "styled-components"
+
+
+
 
 const FeedWrapper = styled.div`
     width: 100%;
-    height: 100%;
     padding: 5px;
 `
 
 const MainFeed = () => {
+    const {postsState, addComment} = useContext(LocalStateContext);
+    const [statePosts, setStatePosts] = useState(postsState)
+
+    useEffect(() => {
+        setStatePosts(postsState)
+    }, [postsState])
+
     return (
         <FeedWrapper>
-            feedWrapper
-            <Post></Post>
+            <AddPost></AddPost>
+            {postsState.Posts.map((post, i) => (<PostText postInfo={post} key={i}/>))}
         </FeedWrapper>
     )
 }

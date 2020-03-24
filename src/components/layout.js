@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./layout.css"
 import PropTypes from "prop-types";
@@ -31,7 +30,6 @@ const LayoutWrapper = styled.div`
 const ContentPanelsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 90vh;
   width: 80vw;
   max-width: 830px;
   background-color: ${props => props.theme.fbGray}

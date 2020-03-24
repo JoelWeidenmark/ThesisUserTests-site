@@ -14,7 +14,14 @@ const ProfileImage = styled.div`
     height: 100%;
     width: 40px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    overflow: hidden;
+
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `
 const NameAndTime = styled.div`
     width: 100%;
@@ -35,20 +42,22 @@ const TimeStamp = styled.p`
     font-size: 0.7rem;
 `
 
-const PostProfileBar = () => {
-    const {postsState} = useContext(LocalStateContext)
+const PostProfileBar = (props) => {
+    const {getProfileImage} = useContext(LocalStateContext)
+    //console.log(props)
+    //getProfileImage();
 
     return (
         <ProfileWrapper>
             <ProfileImage>
-
+                <img src={require(`../../../images/${getProfileImage(props.postInfo.Name)}.jpg`)}></img>
             </ProfileImage>
             <NameAndTime>
                 <ProfileName>
-                    {postsState.Posts[0].Name}
+                    {props.postInfo.Name}
                 </ProfileName>
                 <TimeStamp>
-                    {postsState.Posts[0].TimeStamp}
+                    {props.postInfo.TimeStamp}
                 </TimeStamp>
             </NameAndTime>
             

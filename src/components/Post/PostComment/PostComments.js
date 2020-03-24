@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp, faComment, faShare } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp  } from "@fortawesome/free-solid-svg-icons";
+import { LocalStateContext } from '../../../context/LocalStateContext';
 
 
 const CommentWrapper = styled.div`
@@ -24,7 +25,14 @@ const ProfileImage = styled.div`
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 1px solid #606770;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    overflow: hidden;
+
+    >img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `
 
 const TextBox = styled.div`
@@ -44,10 +52,16 @@ const TextBox = styled.div`
 const LikeAndAnswerWrapper = styled.div`
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 1px 4px 1px 4px;
+    align-items: center;
     margin-left: 2px;
     margin-top: 2px;
     color: ${props => props.liked ? "#4b7fe8" : ''};
-
+    cursor: pointer;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    width: 40px;
+    border-radius: 5px;
     > p{
         margin-left: 10px;
         
@@ -59,35 +73,36 @@ const LikeAndAnswerWrapper = styled.div`
 
 const PostComments = (props) => {
     const [liked, setLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(null);
-
-    
-
-    
-
+    const {changeCommentLikes, getProfileImage} = useContext(LocalStateContext)
+    //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
+    //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
+    getProfileImage(props.comment.commentInfo.Name)
     const likeComment = () => {
-        setLikeCount(props.comment.Likes)
-        if(!liked) setLikeCount(likeCount + 1);
-        setLikeCount(likeCount + 1 );
         setLiked(!liked);
     }
 
+    useEffect(() => {
+        changeCommentLikes(props.postID, props.comment.commentInfo.ID, liked)
+    }, [liked])
+    
     return (
         <CommentWrapper>
-            <ProfileImage></ProfileImage>
+            <ProfileImage>
+                <img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
+            </ProfileImage>
             <ColumnWrapper>
                 <TextBox>
-                    
-                    <span>{props.comment.Name} </span>
-                    {props.comment.Text}
+                    <span>{props.comment.commentInfo.Name + " "}</span>
+                    {props.comment.commentInfo.Text}
                 </TextBox>
-                {props.comment.Likes}
                 {liked ? 
-                    <LikeAndAnswerWrapper liked>
-                        <FontAwesomeIcon icon={faThumbsUp} onClick={() => likeComment()} />
+                    <LikeAndAnswerWrapper liked onClick={() => likeComment()}>
+                        {props.comment.commentInfo.Likes}
+                        <FontAwesomeIcon icon={faThumbsUp}  />
                     </LikeAndAnswerWrapper> 
                     : 
-                    <LikeAndAnswerWrapper>
+                    <LikeAndAnswerWrapper onClick={() => likeComment()}>
+                        {props.comment.commentInfo.Likes}
                         <FontAwesomeIcon icon={faThumbsUp} onClick={() => likeComment(likeComment)} />
                     </LikeAndAnswerWrapper>}
             </ColumnWrapper> 

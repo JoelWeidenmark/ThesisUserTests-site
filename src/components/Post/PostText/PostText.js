@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import styled from "styled-components";
 import PostProfileBar from "../PostProfileBar/PostProfileBar"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,6 +18,7 @@ const PostFrame = styled.div`
     padding: 10px 15px;
     color: ${props => props.theme.fbTextGray};
     border-radius: 5px;
+    margin-bottom: 10px;
 `
 
 const ProfileBar = styled.div`
@@ -50,6 +51,7 @@ const LikesAndComments = styled.div`
     > div{
         font-weight: bold;
         margin-right: 10%;
+        cursor: pointer;
     }
     > p{
         font-weight: bold;
@@ -71,11 +73,11 @@ const WriteCommentWrapper = styled.div`
 `
 
 
-const Post = () => {
-    const {postsState} = useContext(LocalStateContext)
-    const [commentList, setCommentList] = useState(postsState.Posts[0].Comments);
+const PostText = (props) => {
+    const {postsState, setPostsState} = useContext(LocalStateContext)
+    const [commentList, setCommentList] = useState(props.postInfo.Comments);
     const [count, setCount] = useState(0);
-
+    
     const incrementLikes = () => {
         setCount(count + 1);
     }
@@ -84,15 +86,19 @@ const Post = () => {
         setCommentList([...commentList, content])
     }
 
+    useEffect(() => {
+        setCommentList(props.postInfo.Comments)
+    }, [postsState])
+
     return (
         <PostFrame>
             <ProfileBar>
-                <PostProfileBar>
+                <PostProfileBar postInfo={props.postInfo}>
 
                 </PostProfileBar>
             </ProfileBar>
             <TextContent>
-                {postsState.Posts[0].Text}
+                {props.postInfo.Text}
             </TextContent>
             <LikesAndComments>
                 {/* <p>{count}</p> */}
@@ -109,16 +115,16 @@ const Post = () => {
             </LikesAndComments>
             <CommentsField>
                 {
-                    commentList.map(hello =>(
-                    <PostComment comment={hello}></PostComment>
+                    commentList.map((commentInfo, i) =>(
+                    <PostComment comment={{commentInfo, setPostsState}} postID={props.postInfo.ID} key={i}></PostComment>
                 ))}
             </CommentsField>
             <WriteCommentWrapper>
-                <PostWriteComment parentCallback={addComment}>
+                <PostWriteComment postInfo={props.postInfo}>
                 </PostWriteComment>
             </WriteCommentWrapper>
         </PostFrame>
     )
 }
 
-export default Post
+export default PostText

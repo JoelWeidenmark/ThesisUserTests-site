@@ -18,11 +18,26 @@ const ProfileWrapper = styled.div`
     width: 100%;
 `
 
+const AdWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    margin-top:5px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    background-color: ${props => props.theme.fbWhite};
+    border-radius: 5px;
+    padding: 5px;
+`
+
 const LeftPanelAdBox = styled.div`
     display: flex;
     height: 200px;
-    border: 1px solid;
-    margin-top: 5px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+
+    >img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
 `
 
 const LeftPanel = () => {
@@ -33,10 +48,11 @@ const LeftPanel = () => {
 
                 </ProfileBar>
             </ProfileWrapper>
-            <LeftPanelAdBox>
-                AdBox
-            </LeftPanelAdBox>
-            LeftPanelWrapper
+            <AdWrapper>
+                <LeftPanelAdBox>
+                    <img src={require(`../../images/adCoca.jpg`)}></img>
+                </LeftPanelAdBox>
+            </AdWrapper>
         </LeftPanelWrapper>
     )
 }
