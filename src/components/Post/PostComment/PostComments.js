@@ -73,10 +73,10 @@ const LikeAndAnswerWrapper = styled.div`
 
 const PostComments = (props) => {
     const [liked, setLiked] = useState(false);
-    const {changeCommentLikes, getProfileImage} = useContext(LocalStateContext)
+    const {changeCommentLikes, getProfile} = useContext(LocalStateContext)
     //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
     //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
-    getProfileImage(props.comment.commentInfo.Name)
+    //getProfile(props.comment.commentInfo.Name)
     const likeComment = () => {
         setLiked(!liked);
     }
@@ -88,7 +88,7 @@ const PostComments = (props) => {
     return (
         <CommentWrapper>
             <ProfileImage>
-                <img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
+                <img src={require(`../../../images/${getProfile(props.comment.commentInfo.Name).ProfileImage}.jpg`)}></img>
             </ProfileImage>
             <ColumnWrapper>
                 <TextBox>

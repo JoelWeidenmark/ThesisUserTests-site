@@ -6,6 +6,8 @@ import { faThumbsUp, faComment, faShare } from "@fortawesome/free-solid-svg-icon
 import PostComment from "../PostComment/PostComments"
 import PostWriteComment from "../PostWriteComment/PostWriteComment"
 import {LocalStateContext} from "../../../context/LocalStateContext"
+import PostContent from "../PostContent/PostContet"
+import PostContet from '../PostContent/PostContet';
 
 
 
@@ -29,10 +31,10 @@ const ProfileBar = styled.div`
 `
 
 const TextContent = styled.div`
-
     margin-top: 5px;
     border: 1px solid white;
-    padding: 5px;
+    font-size: 0.9rem;
+    padding: 5px 0px;
 `
 
 const LikesAndComments = styled.div`
@@ -40,7 +42,7 @@ const LikesAndComments = styled.div`
     flex-direction: row;
     height: 35px;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
     border-top: 1px solid ${props => props.theme.fbBorderGray};
     border-bottom: 1px solid ${props => props.theme.fbBorderGray};
     align-items: center;
@@ -98,10 +100,11 @@ const PostText = (props) => {
                 </PostProfileBar>
             </ProfileBar>
             <TextContent>
+                
                 {props.postInfo.Text}
             </TextContent>
+            <PostContet postInfo={props.postInfo}></PostContet>
             <LikesAndComments>
-                {/* <p>{count}</p> */}
                 <div>
                     <FontAwesomeIcon icon={faThumbsUp} onClick={() => incrementLikes()} /> Like
                 </div>

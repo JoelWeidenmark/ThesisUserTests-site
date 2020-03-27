@@ -1,17 +1,16 @@
 import React, {useContext} from 'react'
 import styled from "styled-components"
+import { Link } from "gatsby";
 import {LocalStateContext} from "../../../context/LocalStateContext"
 
 const ProfileWrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
 `
 
 const ProfileImage = styled.div`
-    height: 100%;
+    height: 40px;
     width: 40px;
     border-radius: 50%;
     border: 1px solid ${props => props.theme.fbBorderGray};
@@ -24,7 +23,6 @@ const ProfileImage = styled.div`
     }
 `
 const NameAndTime = styled.div`
-    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -40,27 +38,41 @@ const ProfileName = styled.p`
 
 const TimeStamp = styled.p`
     font-size: 0.7rem;
+    color: black;
+`
+
+const Linked = styled(Link)`
+    border: none; 
+    outline: none;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `
 
 const PostProfileBar = (props) => {
-    const {getProfileImage} = useContext(LocalStateContext)
+    const {getProfile} = useContext(LocalStateContext)
     //console.log(props)
     //getProfileImage();
 
     return (
         <ProfileWrapper>
-            <ProfileImage>
-                <img src={require(`../../../images/${getProfileImage(props.postInfo.Name)}.jpg`)}></img>
-            </ProfileImage>
-            <NameAndTime>
-                <ProfileName>
-                    {props.postInfo.Name}
-                </ProfileName>
-                <TimeStamp>
-                    {props.postInfo.TimeStamp}
-                </TimeStamp>
-            </NameAndTime>
-            
+            <Linked to="/profile-accep/" activeClassName="active" state={{Name: props.postInfo.Name}}>
+                <ProfileImage>
+                    <img src={require(`../../../images/${getProfile(props.postInfo.Name).ProfileImage}.jpg`)}></img>
+                </ProfileImage>
+                <NameAndTime>
+                    
+                        <ProfileName>
+                            {props.postInfo.Name}
+                        </ProfileName>
+                    
+                    <TimeStamp>
+                        {props.postInfo.TimeStamp}
+                    </TimeStamp>
+                </NameAndTime>
+            </Linked>
         </ProfileWrapper>
         
     )

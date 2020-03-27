@@ -4,24 +4,25 @@
 export const ContextInitState = {
     Posts: [{
         ID: 1,
-        Type: 'Text',
+        Type: 'Image',
         Name: "Oscar Andersson",
         TimeStamp: "17:20",
-        Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
+        Image: "postBeach.jpg",
+        Text: 'Beach Day 🌞',
         Likes: 2,
         Comments: [
             {
                 ID: 1,
                 Name: "Olivia Stevens",
-                Text: `Hello this is comment 1`,
-                Likes: 2,
+                Text: `😍😍`,
+                Likes: 1,
                 Image: null
             },
             {
                 ID: 2,
                 Name: "Jim Rasmussen",
-                Text: `Hello this is comment 2`,
-                Likes: 3,
+                Text: `Hope it rains 😒`,
+                Likes: 4,
                 Image: null
             } 
         ]
@@ -31,6 +32,7 @@ export const ContextInitState = {
         Type: 'Text',
         Name: "Filip Smith",
         TimeStamp: "18:20",
+        Image: "postBeach.jpg",
         Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
         Likes: 2,
         Comments: [
@@ -42,6 +44,16 @@ export const ContextInitState = {
                 Image: null
             } 
         ]
+    },
+    {
+        ID: 3,
+        Type: 'Text',
+        Name: "Test User",
+        TimeStamp: "21:20",
+        Image: "null",
+        Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
+        Likes: 2,
+        Comments: []
     }
     ]
 }
@@ -49,8 +61,9 @@ export const ContextInitState = {
 export const UsersInitState = {
     Users: [{
         Name: "Test User",
-        PostIDs: [],
-        ProfileImage: "profileW"
+        PostIDs: [3],
+        ProfileImage: "profileW",
+        BannerImage: "bannerMountain"
     },
     {
         Name: "Filip Smith",

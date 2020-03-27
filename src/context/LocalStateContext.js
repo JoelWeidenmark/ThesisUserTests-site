@@ -76,13 +76,13 @@ function PostsStateProvider({children}){
         )
     }
 
-    const getProfileImage = (userName) => {
+    const getProfile = (userName) => {
         const foundUser = usersState.Users.find(user => userName == user.Name)
-        return foundUser.ProfileImage
+        return foundUser
     }
 
     return(
-        <LocalStateProvider value={{postsState, addPostComment, changeCommentLikes, addNewPost, getProfileImage}}>
+        <LocalStateProvider value={{postsState, addPostComment, changeCommentLikes, addNewPost, getProfile}}>
             {children}
         </LocalStateProvider>
     )

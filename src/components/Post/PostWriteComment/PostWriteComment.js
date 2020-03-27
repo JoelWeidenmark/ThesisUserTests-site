@@ -74,7 +74,7 @@ const SendCommentButton = styled.div`
 
 
 const PostWriteComment = (props) => {
-    const {addPostComment, getProfileImage} = useContext(LocalStateContext)
+    const {addPostComment, getProfile} = useContext(LocalStateContext)
     const nameForm = useRef(null);
 
     const postCommentClick  = () => {
@@ -88,7 +88,7 @@ const PostWriteComment = (props) => {
     return (
         <CommentWrapper>
             <ProfileImage>
-                <img src={require(`../../../images/${getProfileImage('Test User')}.jpg`)}></img>
+                <img src={require(`../../../images/${getProfile('Test User').ProfileImage}.jpg`)}></img>
             </ProfileImage>
             <ColumnWrapper>
                 <TextBox>

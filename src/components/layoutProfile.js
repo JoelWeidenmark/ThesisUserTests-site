@@ -1,16 +1,15 @@
 import React from "react";
 import "./layout.css"
-import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
-import LeftPanel from "./LeftPanel/LeftPanel";
 import RightPanel from "./RightPanel/RightPanel";
+import ProfileBanner from "./ProfileBanner/ProfileBanner"
 
 import Header from "./header"
 
-const Layout = ({ children }) => {
+const LayoutProfile = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query SiteTitleQueryProfile {
       site {
         siteMetadata {
           title
@@ -35,12 +34,32 @@ const ContentPanelsWrapper = styled.div`
 `
 
 const LeftPane = styled.div`
-  width: 20%;
+  width: 80%;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+`
+
+const BannerWrapper = styled.div`
+  width: 100%;
+  height: 250px;
+  border: 1px solid black;
+`
+const InfoFeedWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+`
+
+const InfoPane = styled.div`
+  width: 30%;
+  height: 100%;
   border: solid;
 `
 
 const CenterPane = styled.div`
-  width: 60%;
+  width: 70%;
   border: solid;
 `
 
@@ -64,12 +83,19 @@ const Footer = styled.div`
           <LayoutWrapper>
             <ContentPanelsWrapper>
               <LeftPane>
-                <LeftPanel></LeftPanel>
+                <BannerWrapper>
+                  <ProfileBanner></ProfileBanner>
+                </BannerWrapper>
+                <InfoFeedWrapper>
+                  <InfoPane>
+
+                  </InfoPane>
+                  <CenterPane>
+                    <main>{children}</main>
+                  </CenterPane>
+                </InfoFeedWrapper>
+                
               </LeftPane>
-              
-              <CenterPane>
-                <main>{children}</main>
-              </CenterPane>
               <RightPane>
                 <RightPanel>
 
@@ -88,8 +114,5 @@ const Footer = styled.div`
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
-export default Layout
+export default LayoutProfile

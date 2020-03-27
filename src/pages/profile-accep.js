@@ -2,23 +2,21 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import MainFeed from "../components/MainFeed/MainFeed.js"
-import { ThemeProvider } from "styled-components"
+import LayoutProfile from "../components/layoutProfile"
+import ProfileFeed from "../components/ProfileFeed/ProfileFeed"
 
-import * as theme from "../theme/theme.js"
+const ProfilePage = (props) => {
+    console.log(props.location.state)
+    return(
+      <LayoutProfile>
+        <ProfileFeed profile={props.location.state.Name}>
 
-const ProfilePage = () => (
-  <ThemeProvider theme={theme}>
-    <Layout>
-        PROFILE
-        <Link to="/">
-            Go back
-        </Link>
-    </Layout>
-  </ThemeProvider>
-  
-)
+        </ProfileFeed>
+          <Link to="/">
+              Go back
+          </Link>
+      </LayoutProfile>
+    )
+}
 
 export default ProfilePage

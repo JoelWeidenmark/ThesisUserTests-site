@@ -16,6 +16,8 @@ const MainFeed = () => {
     const {postsState, addComment} = useContext(LocalStateContext);
     const [statePosts, setStatePosts] = useState(postsState)
 
+    console.log(postsState)
+
     useEffect(() => {
         setStatePosts(postsState)
     }, [postsState])

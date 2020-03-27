@@ -86,7 +86,7 @@ const PostButton = styled.div`
 const AddPost = () => {
 
     const postText = useRef(null);
-    const {addNewPost, getProfileImage} = useContext(LocalStateContext);
+    const {addNewPost, getProfile} = useContext(LocalStateContext);
     
     const handlePostClick = () => {
         const postValue = postText.current.value;
@@ -105,7 +105,7 @@ const AddPost = () => {
             </CreatePostBorder>
             <WritePostWrapper>
                 <ProfileImage>
-                    <img src={require(`../../images/${getProfileImage('Test User')}.jpg`)}></img>
+                    <img src={require(`../../images/${getProfile('Test User').ProfileImage}.jpg`)}></img>
                 </ProfileImage>
                 <TextBox
                     ref={postText}

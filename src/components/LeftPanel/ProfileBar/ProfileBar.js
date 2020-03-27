@@ -35,19 +35,25 @@ const ProfileName = styled.p`
     margin-left: 5px;
 `
 
+const Linked = styled(Link)`
+    border: none; 
+    outline: none;
+    text-decoration: none;
+`
 
 
 const ProfileBar = () => {
-    const {getProfileImage} = useContext(LocalStateContext)
+    const {getProfile} = useContext(LocalStateContext)
+
     return (
-        <Link to="/profile-accep/" activeClassName="active">
+        <Linked to="/profile-accep/" state={{Name: "Test User"}}>
             <ProfileWrapper>
                 <ProfileImage>
-                    <img src={require(`../../../images/${getProfileImage('Test User')}.jpg`)}></img>
+                    <img src={require(`../../../images/${getProfile('Test User').ProfileImage}.jpg`)}></img>
                 </ProfileImage>
                 <ProfileName>Test User</ProfileName>
             </ProfileWrapper>
-        </Link>
+        </Linked>
     )
 }
 
