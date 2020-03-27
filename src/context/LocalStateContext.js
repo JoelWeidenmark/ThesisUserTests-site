@@ -3,7 +3,7 @@ import {ContextInitState, UsersInitState} from "./ContextInitState";
 
 
 //const ContextProvider = createContext(ContextInitState) 
-const LocalStateContext = createContext();
+const LocalStateContext = createContext(ContextInitState);
 const LocalStateProvider = LocalStateContext.Provider;
 
 //Write set comment likes function. https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
