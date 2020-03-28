@@ -1,15 +1,18 @@
-import React from "react"
+import React, {useState, useContext} from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import LayoutProfile from "../components/layoutProfile"
 import ProfileFeed from "../components/ProfileFeed/ProfileFeed"
+import {LocalStateContext} from "../context/LocalStateContext"
 
 const ProfilePage = (props) => {
-    console.log(props.location.state)
+
+    const{getActiveUser} = useContext(LocalStateContext)
+
     return(
       <LayoutProfile>
-        <ProfileFeed profile={props.location.state.Name}>
+        <ProfileFeed profile={getActiveUser()}>
 
         </ProfileFeed>
           <Link to="/">

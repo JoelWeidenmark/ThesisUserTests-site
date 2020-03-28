@@ -7,22 +7,12 @@ import ProfileBanner from "./ProfileBanner/ProfileBanner"
 
 import Header from "./header"
 
-const LayoutProfile = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQueryProfile {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
 const LayoutWrapper = styled.div`
   display: flex;
   width: 100vw;
   min-height: 100vh;
   justify-content: center;
+  background-color: ${props => props.theme.fbGray}
 `
 
 const ContentPanelsWrapper = styled.div`
@@ -74,6 +64,19 @@ const Footer = styled.div`
   background-color: ${props => props.theme.fbBlue};
   height: 5vh;
 `
+
+
+const LayoutProfile = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQueryProfile {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
 
   return (
     <div>

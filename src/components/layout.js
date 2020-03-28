@@ -8,22 +8,13 @@ import RightPanel from "./RightPanel/RightPanel";
 
 import Header from "./header"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
 const LayoutWrapper = styled.div`
   display: flex;
   width: 100vw;
   min-height: 100vh;
   justify-content: center;
+  background-color: ${props => props.theme.fbGray};
 `
 
 const ContentPanelsWrapper = styled.div`
@@ -55,6 +46,17 @@ const Footer = styled.div`
   background-color: ${props => props.theme.fbBlue};
   height: 5vh;
 `
+
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
   return (
     <div>

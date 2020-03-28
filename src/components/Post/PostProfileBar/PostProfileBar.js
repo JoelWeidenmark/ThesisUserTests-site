@@ -52,13 +52,12 @@ const Linked = styled(Link)`
 `
 
 const PostProfileBar = (props) => {
-    const {getProfile} = useContext(LocalStateContext)
-    //console.log(props)
-    //getProfileImage();
+    const {getProfile, changeActiveUser} = useContext(LocalStateContext)
+
 
     return (
         <ProfileWrapper>
-            <Linked to="/profile-accep/" activeClassName="active" state={{Name: props.postInfo.Name}}>
+            <Linked to="/profile-accep/" onClick={() => (changeActiveUser(props.postInfo.Name))}>
                 <ProfileImage>
                     <img src={require(`../../../images/${getProfile(props.postInfo.Name).ProfileImage}.jpg`)}></img>
                 </ProfileImage>

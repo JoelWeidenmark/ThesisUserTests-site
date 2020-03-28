@@ -3,35 +3,40 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-
 const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${props => props.theme.fbBlue};
   color: white;
-  height: 5vh;
+  height: 40px;
   align-items: center;
+  justify-content: center;
   padding: 5px;
 `
-
-const ContentWrapperLeft = styled.div`
-  width: 20%;
-  text-align: right;
+const ContentWrapper = styled.div`
+  width: 80vw;
+  max-width: 830px;
 `
 
-const ContentWrapperRight = styled.div`
-  width: 80%;
+const LogoWrapper = styled.div`
+  height: 30px;
+  width: 30px;
+  >img{
+    height: 100%;
+    width: 100%;
+  }
 `
 
 
 const Header = ({ siteTitle}) => (
   <HeaderWrapper>
-    <ContentWrapperLeft>
-      LOGO
-    </ContentWrapperLeft>
-    <ContentWrapperRight>
-      
-    </ContentWrapperRight>
+    <ContentWrapper>
+      <Link to={"/"}>
+        <LogoWrapper>
+          <img src={require(`../images/logoFacebook.png`)}></img>
+        </LogoWrapper>
+      </Link>
+    </ContentWrapper>
   </HeaderWrapper>
 
 )

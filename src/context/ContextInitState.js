@@ -68,27 +68,32 @@ export const UsersInitState = {
     {
         Name: "Filip Smith",
         PostIDs: [2],
-        ProfileImage: "man2"
+        ProfileImage: "man2",
+        BannerImage: "bannerBeach"
     },
     {
         Name: "Jim Rasmussen",
         PostIDs: [],
-        ProfileImage: "man1"
+        ProfileImage: "man1",
+        BannerImage: "bannerGlasses"
     },
     {
         Name: "Olivia Stevens",
         PostIDs: [],
-        ProfileImage: "woman1"
+        ProfileImage: "woman1",
+        BannerImage: "bannerMountain"
     },
     {
         Name: "Oscar Andersson",
         PostIDs: [1],
-        ProfileImage: "profileM"
+        ProfileImage: "profileM",
+        BannerImage: "bannerCrowd"
     },
     {
         Name: "Sara Jonsson",
         PostIDs: [],
-        ProfileImage: "woman2"
+        ProfileImage: "woman2",
+        BannerImage: "bannerMountain"
     }
     ]
 }

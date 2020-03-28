@@ -15,7 +15,6 @@ const FeedWrapper = styled.div`
 const ProfileFeed = (props) => {
    
     const {postsState} = useContext(LocalStateContext);
-    console.log(props)
 
     const getProfilePosts = () => {
         return postsState.Posts.filter((post) => (post.Name === props.profile))

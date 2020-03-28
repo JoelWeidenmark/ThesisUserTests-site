@@ -19,11 +19,26 @@ const ProfileBox = styled.div`
     width: 310px;
     height: 110px;
     padding: 5px;
+    display: flex;
+    flex-direciton: row;
     position: absolute;
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 5px;
     margin-top: 130px;
     margin-left: 10px;
+`
+const NameBox = styled.div`
+    height: 30px;
+    background-color: white;
+    margin-top: 70px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 5px;
+
+    >span{
+        color: white;
+    }
 `
 
 const ProfileImage = styled.div`
@@ -43,16 +58,22 @@ const ProfileImage = styled.div`
 
 
 const ProfileBanner = () => {
-    const{getProfile} = useContext(LocalStateContext)
+    const{getProfile, getActiveUser} = useContext(LocalStateContext)
+    console.log(getActiveUser())
 
     return (
         <Wrapper>
             <ProfileBox>
                 <ProfileImage>
-                    <img src={require(`../../images/${getProfile('Test User').ProfileImage}.jpg`)}></img>
+                    <img src={require(`../../images/${getProfile(getActiveUser()).ProfileImage}.jpg`)}></img>
                 </ProfileImage>
+                <NameBox>
+                    <span>
+                        {getActiveUser()}
+                    </span>
+                </NameBox>
             </ProfileBox>
-            <img src={require(`../../images/${getProfile('Test User').BannerImage}.jpg`)}>
+            <img src={require(`../../images/${getProfile(getActiveUser()).BannerImage}.jpg`)}>
             </img>
         </Wrapper>
     )

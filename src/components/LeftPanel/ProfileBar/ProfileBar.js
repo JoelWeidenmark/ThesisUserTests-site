@@ -43,10 +43,10 @@ const Linked = styled(Link)`
 
 
 const ProfileBar = () => {
-    const {getProfile} = useContext(LocalStateContext)
+    const {getProfile, changeActiveUser} = useContext(LocalStateContext)
 
     return (
-        <Linked to="/profile-accep/" state={{Name: "Test User"}}>
+        <Linked to="/profile-accep/" onClick={() => (changeActiveUser("Test User"))}>
             <ProfileWrapper>
                 <ProfileImage>
                     <img src={require(`../../../images/${getProfile('Test User').ProfileImage}.jpg`)}></img>

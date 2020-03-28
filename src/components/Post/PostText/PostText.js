@@ -84,10 +84,6 @@ const PostText = (props) => {
         setCount(count + 1);
     }
 
-    const addComment = (content) => {
-        setCommentList([...commentList, content])
-    }
-
     useEffect(() => {
         setCommentList(props.postInfo.Comments)
     }, [postsState])
