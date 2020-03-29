@@ -1,7 +1,10 @@
 import React, {useContext} from 'react'
 import styled from "styled-components"
 import { Link } from "gatsby";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay} from "@fortawesome/free-solid-svg-icons";
 import {LocalStateContext} from "../../../context/LocalStateContext"
+
 
 const ProfileWrapper = styled.div`
     width: 100%;
@@ -33,7 +36,15 @@ const NameAndTime = styled.div`
 const ProfileName = styled.p`
     font-size: 0.9rem;
     font-weight:bold;
-    color: ${props => props.theme.fbBlue}
+    color: ${props => props.theme.fbBlue};
+    >span{
+        font-size: 0.8rem;
+        >span{
+            font-size: 0.6rem;
+            margin-top: -5px;
+            color: ${props => props.theme.fbTextGray};
+        }
+    }
 `
 
 const TimeStamp = styled.p`
@@ -65,6 +76,7 @@ const PostProfileBar = (props) => {
                     
                         <ProfileName>
                             {props.postInfo.Name}
+                            {props.postInfo.To ? <span> <span><FontAwesomeIcon icon={faPlay} /></span> {props.postInfo.To} </span> : <span></span> }
                         </ProfileName>
                     
                     <TimeStamp>

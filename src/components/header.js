@@ -24,6 +24,8 @@ const LogoWrapper = styled.div`
   >img{
     height: 100%;
     width: 100%;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
   }
 `
 

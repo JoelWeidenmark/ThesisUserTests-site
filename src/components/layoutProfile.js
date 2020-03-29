@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import RightPanel from "./RightPanel/RightPanel";
 import ProfileBanner from "./ProfileBanner/ProfileBanner"
+import ProfileInfoPanel from "./ProfileInfoPanel/ProfileInfoPannel"
 
 import Header from "./header"
 
@@ -91,7 +92,9 @@ const LayoutProfile = ({ children }) => {
                 </BannerWrapper>
                 <InfoFeedWrapper>
                   <InfoPane>
-
+                    <ProfileInfoPanel>
+                      
+                    </ProfileInfoPanel>
                   </InfoPane>
                   <CenterPane>
                     <main>{children}</main>

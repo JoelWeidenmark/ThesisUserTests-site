@@ -15,15 +15,21 @@ const FeedWrapper = styled.div`
 const ProfileFeed = (props) => {
    
     const {postsState} = useContext(LocalStateContext);
+    
 
     const getProfilePosts = () => {
-        return postsState.Posts.filter((post) => (post.Name === props.profile))
+        return postsState.Posts.filter((post) => (post.Name === props.profile || post.To === props.profile))
     }
-
-    const profilePosts = getProfilePosts()
+    const profilePosts = getProfilePosts();
+    
+    /*
+    useEffect(() => {
+        profilePosts = getProfilePosts()
+    }, [postsState])*/
+    
     return(
         <FeedWrapper>
-            <AddPost/>
+            <AddPost ToUser={props.profile} />
             {profilePosts.map((post, i) => (<PostText postInfo={post} key={i}/>))}
         </FeedWrapper>
     )

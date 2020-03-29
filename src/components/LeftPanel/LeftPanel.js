@@ -7,8 +7,10 @@ const LeftPanelWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     padding: 5px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 `
 
 const ProfileWrapper = styled.div`

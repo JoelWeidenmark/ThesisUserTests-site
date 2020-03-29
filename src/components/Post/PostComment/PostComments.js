@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
+import { Link } from "gatsby";
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp  } from "@fortawesome/free-solid-svg-icons";
@@ -42,10 +43,6 @@ const TextBox = styled.div`
     border-radius: 7px;
     padding: 5px;
     background-color: ${props => props.theme.fbGray};
-    >span{
-        font-weight: bold;
-        color: ${props => props.theme.fbBlue}
-    }
 
 `
 
@@ -69,11 +66,18 @@ const LikeAndAnswerWrapper = styled.div`
 
 `
 
+const LinkStyle = styled(Link)`
+    border: none; 
+    outline: none;
+    text-decoration: none;
+    font-weight: bold;
+    color: ${props => props.theme.fbBlue};
+`
 
 
 const PostComments = (props) => {
     const [liked, setLiked] = useState(false);
-    const {changeCommentLikes, getProfile} = useContext(LocalStateContext)
+    const {changeCommentLikes, getProfile, changeActiveUser} = useContext(LocalStateContext)
     //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
     //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
     //getProfile(props.comment.commentInfo.Name)
@@ -87,12 +91,18 @@ const PostComments = (props) => {
     
     return (
         <CommentWrapper>
-            <ProfileImage>
-                <img src={require(`../../../images/${getProfile(props.comment.commentInfo.Name).ProfileImage}.jpg`)}></img>
-            </ProfileImage>
+            <Link to={"/profile-accep/"}>
+                <ProfileImage onClick={() => changeActiveUser(props.comment.commentInfo.Name)}>
+                    <img src={require(`../../../images/${getProfile(props.comment.commentInfo.Name).ProfileImage}.jpg`)}></img>
+                </ProfileImage>
+            </Link>
             <ColumnWrapper>
                 <TextBox>
-                    <span>{props.comment.commentInfo.Name + " "}</span>
+                    <LinkStyle to={"/profile-accep/"}>
+                        <span onClick={() => changeActiveUser(props.comment.commentInfo.Name)}>
+                            {props.comment.commentInfo.Name + " "}
+                        </span>
+                    </LinkStyle>
                     {props.comment.commentInfo.Text}
                 </TextBox>
                 {liked ? 

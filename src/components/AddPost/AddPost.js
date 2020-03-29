@@ -13,6 +13,7 @@ const AddPostFrame = styled.div`
     background-color: ${props => props.theme.fbWhite};
     border-radius: 5px;
     margin-bottom: 10px;
+    overflow: hidden;
 `
 
 const CreatePostBorder = styled.div`
@@ -83,16 +84,22 @@ const PostButton = styled.div`
 `
 
 
-const AddPost = () => {
+const AddPost = (props) => {
 
     const postText = useRef(null);
     const {addNewPost, getProfile} = useContext(LocalStateContext);
-    
     const handlePostClick = () => {
         const postValue = postText.current.value;
+        
         if(postValue){
-            addNewPost(postValue);
-            postText.current.value = "";
+            if(props.ToUser){
+                addNewPost(postValue, props.ToUser)
+            }
+            else{
+                addNewPost(postValue);
+                postText.current.value = "";
+            }
+            
         }
     }
 

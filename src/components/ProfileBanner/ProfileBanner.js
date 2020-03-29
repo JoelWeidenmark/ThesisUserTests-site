@@ -59,7 +59,6 @@ const ProfileImage = styled.div`
 
 const ProfileBanner = () => {
     const{getProfile, getActiveUser} = useContext(LocalStateContext)
-    console.log(getActiveUser())
 
     return (
         <Wrapper>

@@ -14,9 +14,8 @@ function PostsStateProvider({children}){
     const [usersState, setUsersState] = useState(UsersInitState);
     const [activeUser, setActiveUser] = useState("Test User")
 
-    const addNewPost = (postText) =>{
+    const addNewPost = (postText, toUser) =>{
         const today = new Date()
-
         const highestID = postsState.Posts.reduce((acc, post) => (acc < post.ID ? post.ID : acc),0);
         const newPostID = highestID+1;
         let postObject = {
@@ -28,9 +27,16 @@ function PostsStateProvider({children}){
             Likes: 0,
             Comments: []
         }
+        /*if(toUser){
+            postObject.To = toUser;
+            
+        }*/
+        postObject = toUser ? {...postObject, To: toUser} : postObject;
+        //console.log("Koll:")
+        console.log(postObject)
         setUsersState({
             Users: usersState.Users.map((user) =>
-            (user.Name == "Test User" ? {...user, PostIDs: [...user.PostIDs, newPostID]} : user))
+            (user.Name == "Test User" || user.Name == toUser ? {...user, PostIDs: [...user.PostIDs, newPostID]} : user))
         });
         setPostsState({Posts: [postObject, ...postsState.Posts]});
     }
@@ -89,7 +95,9 @@ function PostsStateProvider({children}){
     const getActiveUser = () => {
         return activeUser
     }
-
+    useEffect(() => {
+        console.log(postsState)
+    })
 
     return(
         <LocalStateProvider value={{postsState, addPostComment, changeCommentLikes, addNewPost, getProfile, changeActiveUser, getActiveUser}}>
