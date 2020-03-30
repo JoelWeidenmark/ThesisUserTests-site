@@ -44,14 +44,12 @@ const TextBox = styled.div`
     padding: 5px;
     background-color: ${props => props.theme.fbGray};
     color: ${props => props.theme.fbTextLightGray};
-
-
 `
 const TextBoxes = styled(Textarea)`
     border: none;
     resize: none; 
     width: 80%;
-    background-color: ${props => props.theme.fbLightGray};
+    background-color: ${props => props.theme.fbGray};
     outline: none;
 `
 

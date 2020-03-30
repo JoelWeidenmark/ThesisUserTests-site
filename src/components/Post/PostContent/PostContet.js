@@ -17,6 +17,28 @@ const ImageWrapper = styled.div`
     
 `
 
+const ImageWrapperAd = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    >img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+`
+
+const AdText = styled.div`
+    font-size: 0.75rem;
+    margin-top: 10px;
+    margin-left: 1px;
+    >span{
+        color: ${props => props.theme.fbBlue}
+    }
+`
+
 const PostContet = (props) => {
 
     if(props.postInfo.Type === "Text"){
@@ -31,6 +53,18 @@ const PostContet = (props) => {
             <ImageWrapper>
                 <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
             </ImageWrapper>
+        )
+    }
+    if(props.postInfo.Type === "Ad"){
+        return (
+            <>
+                <ImageWrapperAd>
+                    <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
+                </ImageWrapperAd>
+                <AdText>
+                    This is an advert by <span>{props.postInfo.Name}</span>
+                </AdText>
+            </>
         )
     }
 }

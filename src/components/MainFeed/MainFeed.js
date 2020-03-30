@@ -23,8 +23,9 @@ const MainFeed = () => {
     return (
         <FeedWrapper>
             <AddPost></AddPost>
-            <PostAd></PostAd>
-            {postsState.Posts.map((post, i) => (<PostText postInfo={post} key={i}/>))}
+            {postsState.Posts.map((post, i) => 
+                post.Type === "Ad" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
+            )}
         </FeedWrapper>
     )
 }
