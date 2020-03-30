@@ -41,24 +41,26 @@ const LikesAndComments = styled.div`
     display: flex;
     flex-direction: row;
     height: 35px;
-    width: 100%;
-    margin-top: 10px;
-    border-top: 1px solid ${props => props.theme.fbBorderGray};
+    width: 98%;
+    /*border-top: 1px solid ${props => props.theme.fbBorderGray};*/
     border-bottom: 1px solid ${props => props.theme.fbBorderGray};
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     align-self: center;
-    padding-left: 10%;
     font-size: 0.9rem;
-    > div{
-        font-weight: bold;
-        margin-right: 10%;
-        cursor: pointer;
-    }
-    > p{
-        font-weight: bold;
-        margin-top: 1px;
-    }
+`
+
+const LikesWrapper = styled.div`
+    width: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    border-radius: 5px;
+    padding: 1px 4px 1px 4px;
+    font-weight: normal;
+    color: ${props => props.liked ? "#4b7fe8" : ''};
+    cursor: pointer;
 `
 
 
@@ -76,14 +78,14 @@ const WriteCommentWrapper = styled.div`
 
 
 const PostText = (props) => {
-    const {postsState, setPostsState} = useContext(LocalStateContext)
+    const {postsState, setPostsState, changePostLikes} = useContext(LocalStateContext)
     const [commentList, setCommentList] = useState(props.postInfo.Comments);
-    const [count, setCount] = useState(0);
     
-    const incrementLikes = () => {
-        setCount(count + 1);
-    }
+    const likePost = () => {
 
+        changePostLikes(props.postInfo.ID)
+    }
+    
     useEffect(() => {
         setCommentList(props.postInfo.Comments)
     }, [postsState])
@@ -100,17 +102,19 @@ const PostText = (props) => {
                 {props.postInfo.Text}
             </TextContent>
             <PostContet postInfo={props.postInfo}></PostContet>
-            <LikesAndComments>
-                <div>
-                    <FontAwesomeIcon icon={faThumbsUp} onClick={() => incrementLikes()} /> Like
-                </div>
-
-                <div>
-                    <FontAwesomeIcon icon={faComment} onClick={() => incrementLikes()} /> Comment
-                </div>
-                <div>
-                    <FontAwesomeIcon icon={faShare} onClick={() => incrementLikes()} /> Share
-                </div>
+            <LikesAndComments >
+                    {
+                        props.postInfo.LikedByUser ?
+                            <LikesWrapper liked>
+                                {props.postInfo.Likes}
+                                <FontAwesomeIcon icon={faThumbsUp} onClick={() => likePost()} />
+                            </LikesWrapper> :
+                            <LikesWrapper>
+                                {props.postInfo.Likes}
+                                <FontAwesomeIcon icon={faThumbsUp} onClick={() => likePost()} />
+                            </LikesWrapper>  
+                    }
+                      
             </LikesAndComments>
             <CommentsField>
                 {

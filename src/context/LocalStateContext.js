@@ -25,15 +25,11 @@ function PostsStateProvider({children}){
             TimeStamp: `${today.getHours()}:${today.getMinutes() >= 10 ? today.getMinutes() : '0' + today.getMinutes()}`,
             Text: postText,
             Likes: 0,
+            LikedByUser: false,
             Comments: []
         }
-        /*if(toUser){
-            postObject.To = toUser;
-            
-        }*/
         postObject = toUser ? {...postObject, To: toUser} : postObject;
-        //console.log("Koll:")
-        console.log(postObject)
+        
         setUsersState({
             Users: usersState.Users.map((user) =>
             (user.Name == "Test User" || user.Name == toUser ? {...user, PostIDs: [...user.PostIDs, newPostID]} : user))
@@ -66,21 +62,39 @@ function PostsStateProvider({children}){
         
     }
 
-    const changeCommentLikes = (postID, commentID, isLiked) => {
+    const changePostLikes = (postID) => {
 
         setPostsState({
-                Posts: postsState.Posts.map((post) =>
+            Posts: postsState.Posts.map((post) =>
                 post.ID === postID ? 
-                {...post, Comments: post.Comments.map((comment) => 
+                {...post, 
+                    Likes: (post.LikedByUser ? post.Likes - 1
+                    : post.Likes + 1),
+                    LikedByUser: !post.LikedByUser}
+                : post
+            )
+        })
+
+    }
+
+    const changeCommentLikes = (postID, commentID) => {
+        setPostsState({
+            Posts: postsState.Posts.map((post) =>
+                post.ID === postID ? 
+                {...post, Comments: post.Comments.map((comment) =>
                     comment.ID === commentID ? 
-                        {...comment, Likes: (isLiked ? comment.Likes+1 : 
-                            (comment.Likes > 0 ? comment.Likes-1 : comment.Likes)
-                            )
-                        }
-                        :comment)} 
-                : post)
-            }
-        )
+                    {...comment, 
+                        Likes: (comment.LikedByUser ? comment.Likes - 1
+                            : comment.Likes + 1),
+                        LikedByUser: !comment.LikedByUser
+
+                    } 
+                    : comment
+                )} 
+                :post
+            )
+
+        })
     }
 
     const getProfile = (userName) => {
@@ -95,12 +109,9 @@ function PostsStateProvider({children}){
     const getActiveUser = () => {
         return activeUser
     }
-    useEffect(() => {
-        console.log(postsState)
-    })
 
     return(
-        <LocalStateProvider value={{postsState, addPostComment, changeCommentLikes, addNewPost, getProfile, changeActiveUser, getActiveUser}}>
+        <LocalStateProvider value={{postsState, addPostComment, changePostLikes, changeCommentLikes, addNewPost, getProfile, changeActiveUser, getActiveUser}}>
             {children}
         </LocalStateProvider>
     )

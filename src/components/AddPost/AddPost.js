@@ -92,8 +92,9 @@ const AddPost = (props) => {
         const postValue = postText.current.value;
         
         if(postValue){
-            if(props.ToUser){
+            if(props.ToUser != "Test User"){
                 addNewPost(postValue, props.ToUser)
+                postText.current.value = "";
             }
             else{
                 addNewPost(postValue);

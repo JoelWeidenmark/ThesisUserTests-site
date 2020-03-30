@@ -41,7 +41,6 @@ const ProfileName = styled.p`
         font-size: 0.8rem;
         >span{
             font-size: 0.6rem;
-            margin-top: -5px;
             color: ${props => props.theme.fbTextGray};
         }
     }
@@ -52,14 +51,19 @@ const TimeStamp = styled.p`
     color: black;
 `
 
-const Linked = styled(Link)`
-    border: none; 
-    outline: none;
+const LinkedImg = styled(Link)`
+
+`
+const LinkedName = styled(Link)`
     text-decoration: none;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    color: ${props => props.theme.fbBlue};
+    margin-right: 5px;
+`
+
+const LinkedTo = styled(Link)`
+    text-decoration: none;
+    color: ${props => props.theme.fbBlue};
+    margin-left: 5px;
 `
 
 const PostProfileBar = (props) => {
@@ -68,22 +72,31 @@ const PostProfileBar = (props) => {
 
     return (
         <ProfileWrapper>
-            <Linked to="/profile-accep/" onClick={() => (changeActiveUser(props.postInfo.Name))}>
+            <LinkedImg to="/profile-accep/" onClick={() => (changeActiveUser(props.postInfo.Name))}>
                 <ProfileImage>
                     <img src={require(`../../../images/${getProfile(props.postInfo.Name).ProfileImage}.jpg`)}></img>
                 </ProfileImage>
-                <NameAndTime>
-                    
-                        <ProfileName>
-                            {props.postInfo.Name}
-                            {props.postInfo.To ? <span> <span><FontAwesomeIcon icon={faPlay} /></span> {props.postInfo.To} </span> : <span></span> }
-                        </ProfileName>
-                    
-                    <TimeStamp>
-                        {props.postInfo.TimeStamp}
-                    </TimeStamp>
-                </NameAndTime>
-            </Linked>
+            </LinkedImg>
+            <NameAndTime>
+                <ProfileName>
+                    <LinkedName to="/profile-accep/" onClick={() => (changeActiveUser(props.postInfo.Name))}>
+                    {props.postInfo.Name}
+                    </LinkedName>
+                    {props.postInfo.To ?
+                    <span> 
+                        <span>
+                            <FontAwesomeIcon icon={faPlay} />
+                        </span> 
+                        <LinkedTo to="/profile-accep/" onClick={() => (changeActiveUser(props.postInfo.To))}>
+                            {props.postInfo.To}
+                        </LinkedTo>   
+                    </span> 
+                    : <span></span> }
+                </ProfileName>
+                <TimeStamp>
+                    {props.postInfo.TimeStamp}
+                </TimeStamp>
+            </NameAndTime>
         </ProfileWrapper>
         
     )

@@ -10,12 +10,14 @@ export const ContextInitState = {
         Image: "postBeach.jpg",
         Text: 'Beach Day 🌞',
         Likes: 2,
+        LikedByUser: true,
         Comments: [
             {
                 ID: 1,
                 Name: "Olivia Stevens",
                 Text: `😍😍`,
                 Likes: 1,
+                LikedByUser: true,
                 Image: null
             },
             {
@@ -23,6 +25,7 @@ export const ContextInitState = {
                 Name: "Jim Rasmussen",
                 Text: `Hope it rains 😒`,
                 Likes: 4,
+                LikedByUser: false,
                 Image: null
             } 
         ]
@@ -36,12 +39,14 @@ export const ContextInitState = {
         Image: "postBeach.jpg",
         Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
         Likes: 2,
+        LikedByUser: false,
         Comments: [
             {
                 ID: 1,
                 Name: "Sara Jonsson",
                 Text: `Hello this is comment 1`,
                 Likes: 3,
+                LikedByUser: false,
                 Image: null
             } 
         ]
@@ -54,6 +59,7 @@ export const ContextInitState = {
         Image: "null",
         Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
         Likes: 2,
+        LikedByUser: false,
         Comments: []
     }
     ]

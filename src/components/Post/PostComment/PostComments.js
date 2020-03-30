@@ -76,18 +76,11 @@ const LinkStyle = styled(Link)`
 
 
 const PostComments = (props) => {
-    const [liked, setLiked] = useState(false);
     const {changeCommentLikes, getProfile, changeActiveUser} = useContext(LocalStateContext)
-    //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
-    //<img src={require(`../../../images/${getProfileImage(props.comment.commentInfo.Name)}.jpg`)}></img>
-    //getProfile(props.comment.commentInfo.Name)
+    
     const likeComment = () => {
-        setLiked(!liked);
+        changeCommentLikes(props.postID, props.comment.commentInfo.ID)
     }
-
-    useEffect(() => {
-        changeCommentLikes(props.postID, props.comment.commentInfo.ID, liked)
-    }, [liked])
     
     return (
         <CommentWrapper>
@@ -105,7 +98,7 @@ const PostComments = (props) => {
                     </LinkStyle>
                     {props.comment.commentInfo.Text}
                 </TextBox>
-                {liked ? 
+                {props.comment.commentInfo.LikedByUser ? 
                     <LikeAndAnswerWrapper liked onClick={() => likeComment()}>
                         {props.comment.commentInfo.Likes}
                         <FontAwesomeIcon icon={faThumbsUp}  />
@@ -113,7 +106,7 @@ const PostComments = (props) => {
                     : 
                     <LikeAndAnswerWrapper onClick={() => likeComment()}>
                         {props.comment.commentInfo.Likes}
-                        <FontAwesomeIcon icon={faThumbsUp} onClick={() => likeComment(likeComment)} />
+                        <FontAwesomeIcon icon={faThumbsUp} />
                     </LikeAndAnswerWrapper>}
             </ColumnWrapper> 
         </CommentWrapper>
