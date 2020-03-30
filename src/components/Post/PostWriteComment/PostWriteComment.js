@@ -51,7 +51,7 @@ const TextBoxes = styled(Textarea)`
     border: none;
     resize: none; 
     width: 80%;
-    background-color: ${props => props.theme.fbGray};
+    background-color: ${props => props.theme.fbLightGray};
     outline: none;
 `
 

@@ -3,6 +3,7 @@ import PostText from "../Post/PostText/PostText";
 import AddPost from "../AddPost/AddPost";
 import {LocalStateContext} from "../../context/LocalStateContext"
 import styled from "styled-components"
+import PostAd from "../Post/PostAd/PostAd"
 
 
 
@@ -22,6 +23,7 @@ const MainFeed = () => {
     return (
         <FeedWrapper>
             <AddPost></AddPost>
+            <PostAd></PostAd>
             {postsState.Posts.map((post, i) => (<PostText postInfo={post} key={i}/>))}
         </FeedWrapper>
     )

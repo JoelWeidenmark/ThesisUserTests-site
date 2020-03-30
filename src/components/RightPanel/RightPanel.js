@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from "styled-components"
+import Birthday from "../Birthday/Birthday"
 
 const RightPanelWrapper = styled.div`
     display: flex;
@@ -15,16 +16,7 @@ const RightPanelWrapper = styled.div`
 const BirthdayBar = styled.div`
     display: flex;
     flex-direction: row;
-    height: 50px;
-    border: 1px solid;
 `
-/*
-const RightPanelAdBox = styled.div`
-    display: flex;
-    height: 200px;
-    border: 1px solid;
-    margin-top: 5px;
-`*/
 
 const AdWrapper = styled.div`
     display: flex;
@@ -49,7 +41,9 @@ const RightPanel = () => {
     return (
         <RightPanelWrapper>
             <BirthdayBar>
-                BirthdayBar
+                <Birthday>
+
+                </Birthday>
             </BirthdayBar>
             <AdWrapper>
                 <RightPanelAdBox>

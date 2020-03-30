@@ -6,7 +6,6 @@ import { faThumbsUp, faComment, faShare } from "@fortawesome/free-solid-svg-icon
 import PostComment from "../PostComment/PostComments"
 import PostWriteComment from "../PostWriteComment/PostWriteComment"
 import {LocalStateContext} from "../../../context/LocalStateContext"
-import PostContent from "../PostContent/PostContet"
 import PostContet from '../PostContent/PostContet';
 
 
@@ -42,7 +41,6 @@ const LikesAndComments = styled.div`
     flex-direction: row;
     height: 35px;
     width: 98%;
-    /*border-top: 1px solid ${props => props.theme.fbBorderGray};*/
     border-bottom: 1px solid ${props => props.theme.fbBorderGray};
     align-items: center;
     justify-content: flex-end;
@@ -105,13 +103,13 @@ const PostText = (props) => {
             <LikesAndComments >
                     {
                         props.postInfo.LikedByUser ?
-                            <LikesWrapper liked>
+                            <LikesWrapper liked onClick={() => likePost()}>
                                 {props.postInfo.Likes}
-                                <FontAwesomeIcon icon={faThumbsUp} onClick={() => likePost()} />
+                                <FontAwesomeIcon icon={faThumbsUp} />
                             </LikesWrapper> :
-                            <LikesWrapper>
+                            <LikesWrapper onClick={() => likePost()}>
                                 {props.postInfo.Likes}
-                                <FontAwesomeIcon icon={faThumbsUp} onClick={() => likePost()} />
+                                <FontAwesomeIcon icon={faThumbsUp} />
                             </LikesWrapper>  
                     }
                       
