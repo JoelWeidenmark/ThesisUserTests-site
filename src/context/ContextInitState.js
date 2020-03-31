@@ -27,17 +27,6 @@ export const ContextInitState = {
             Comments: []
         },
         {
-            ID: 4,
-            Type: 'Video',
-            Name: "Oscar Andersson",
-            TimeStamp: "17:20",
-            Video: "https://www.youtube.com/watch?v=rNSnfXl1ZjU",
-            Text: 'Cuuute!',
-            Likes: 1,
-            LikedByUser: false,
-            Comments: []
-        },
-        {
         ID: 1,
         Type: 'Image',
         Name: "Oscar Andersson",
@@ -69,18 +58,18 @@ export const ContextInitState = {
         ID: 2,
         Type: 'Text',
         Name: "Filip Smith",
-        To: "Test User",
+        To: "Sara Jonsson",
         TimeStamp: "18:20",
         Image: "postBeach.jpg",
-        Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
-        Likes: 2,
+        Text: 'Thailand flight canceled... Lucky you!',
+        Likes: 3,
         LikedByUser: false,
         Comments: [
             {
                 ID: 1,
                 Name: "Sara Jonsson",
-                Text: `Hello this is comment 1`,
-                Likes: 3,
+                Text: `Woop! Let's go next year instead! 😍`,
+                Likes: 2,
                 LikedByUser: false,
                 Image: null
             } 
@@ -89,21 +78,90 @@ export const ContextInitState = {
     {
         ID: 3,
         Type: 'Text',
-        Name: "Test User",
+        Name: "Jim Rasmussen",
         TimeStamp: "21:20",
         Image: "null",
-        Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper sem vel nisl molestie tristique. Aenean vehicula eleifend odio eget condimentum. Nam condimentum dignissim leo, vel mattis ligula consequat nec.',
+        Text: "Just got sick and can't go outside. If anyone can help me with some shopping that would be amazing!",
         Likes: 2,
         LikedByUser: false,
         Comments: []
-    }
+    },
+    {
+        ID: 4,
+        Type: 'Video',
+        Name: "Oscar Andersson",
+        TimeStamp: "17:20",
+        Video: "https://www.youtube.com/watch?v=rNSnfXl1ZjU",
+        Text: 'Cat!',
+        Likes: 1,
+        LikedByUser: false,
+        Comments: []
+    },
+    {
+        ID: 5,
+        Type: 'Image',
+        Name: "Olivia Stevens",
+        TimeStamp: "17:20",
+        Image: "postWood.jpg",
+        Text: 'Morning Walk!',
+        Likes: 1,
+        LikedByUser: false,
+        Comments: [{
+            ID: 1,
+            Name: "Filip Smith",
+            Text: `Early riser I see 🙌`,
+            Likes: 0,
+            LikedByUser: false,
+            Image: null
+            }
+        ]
+    },
+    {
+        ID: 6,
+        Type: 'Text',
+        Name: "Sara Jonsson",
+        TimeStamp: "17:20",
+        Image: "",
+        Text: 'Hi! Just got laid off work because of the Corona pandemic so will be spending quite a lot of time doing nothing for the next few days! If anyone needs help with shopping or the like, feel free to hit me up! ',
+        Likes: 5,
+        LikedByUser: true,
+        Comments: [{
+            ID: 1,
+            Name: "Jim Rasmussen",
+            Text: `Currently in quarantine, would love some help!`,
+            Likes: 1,
+            LikedByUser: true,
+            Image: null
+            },
+            {
+            ID: 2,
+            Name: "Jenny Karlsson",
+            Text: `❤️❤️❤️`,
+            Likes: 1,
+            LikedByUser: false,
+            Image: null
+            }
+        ]
+    },
+    {
+        ID: 7,
+        Type: 'Image',
+        Name: "Oscar Andersson",
+        TimeStamp: "17:20",
+        Image: "postPlane.jpg",
+        Text: 'Next stop Bali!',
+        Likes: 8,
+        LikedByUser: true,
+        Comments: [
+        ]
+    },
     ]
 }
 
 export const UsersInitState = {
     Users: [{
         Name: "Test User",
-        PostIDs: [2, 3],
+        PostIDs: [],
         ProfileImage: "profileW",
         BannerImage: "bannerMountain",
         Education: "KTH",
@@ -123,7 +181,7 @@ export const UsersInitState = {
     },
     {
         Name: "Jim Rasmussen",
-        PostIDs: [],
+        PostIDs: [3],
         ProfileImage: "man1",
         BannerImage: "bannerGlasses",
         Education: "High School",
@@ -133,7 +191,7 @@ export const UsersInitState = {
     },
     {
         Name: "Olivia Stevens",
-        PostIDs: [],
+        PostIDs: [5],
         ProfileImage: "woman1",
         BannerImage: "bannerMountain",
         Education: "Chalmers",
@@ -143,7 +201,7 @@ export const UsersInitState = {
     },
     {
         Name: "Oscar Andersson",
-        PostIDs: [1],
+        PostIDs: [1, 4, 7],
         ProfileImage: "profileM",
         BannerImage: "bannerCrowd",
         Education: "SU",
@@ -153,12 +211,22 @@ export const UsersInitState = {
     },
     {
         Name: "Sara Jonsson",
-        PostIDs: [],
+        PostIDs: [2, 6],
         ProfileImage: "woman2",
         BannerImage: "bannerMountain",
         Education: "KTH",
         Work: "Scania",
         Relationship: "Single",
+        Hometown: "Stockholm"
+    },
+    {
+        Name: "Jenny Karlsson",
+        PostIDs: [],
+        ProfileImage: "woman2",
+        BannerImage: "bannerMountain",
+        Education: "KTH",
+        Work: "Ericsson",
+        Relationship: "Relationship",
         Hometown: "Stockholm"
     }
     ]

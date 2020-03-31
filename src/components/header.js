@@ -12,6 +12,10 @@ const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `
 const ContentWrapper = styled.div`
   width: 80vw;

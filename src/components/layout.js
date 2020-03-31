@@ -27,17 +27,17 @@ const ContentPanelsWrapper = styled.div`
 
 const LeftPane = styled.div`
   width: 20%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const CenterPane = styled.div`
   width: 60%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const RightPane = styled.div`
   width: 20%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const Footer = styled.div`

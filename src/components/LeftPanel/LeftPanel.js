@@ -10,7 +10,7 @@ const LeftPanelWrapper = styled.div`
     padding: 5px;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 40px;
 `
 
 const ProfileWrapper = styled.div`
