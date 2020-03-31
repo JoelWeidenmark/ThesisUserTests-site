@@ -27,6 +27,17 @@ export const ContextInitState = {
             Comments: []
         },
         {
+            ID: 4,
+            Type: 'Video',
+            Name: "Oscar Andersson",
+            TimeStamp: "17:20",
+            Video: "https://www.youtube.com/watch?v=rNSnfXl1ZjU",
+            Text: 'Cuuute!',
+            Likes: 1,
+            LikedByUser: false,
+            Comments: []
+        },
+        {
         ID: 1,
         Type: 'Image',
         Name: "Oscar Andersson",

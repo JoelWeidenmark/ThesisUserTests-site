@@ -19,6 +19,18 @@ const ImageWrapper = styled.div`
     
 `
 
+const VideoWrapper = styled.div`
+    display: flex;
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-top: 5px;
+    max-height: 400px;
+    height: 270px;
+    border-top: 1px solid ${props => props.theme.fbBorderGray};
+    border-bottom: 1px solid ${props => props.theme.fbBorderGray};
+    overflow: hidden;
+`
+
 
 const ImageWrapperAd = styled.div`
     width: 100%;
@@ -63,6 +75,19 @@ const PostContet = (props) => {
             <ImageWrapper>
                 <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
             </ImageWrapper>
+        )
+    }
+    if(props.postInfo.Type === "Video"){
+        return (
+            <VideoWrapper>
+                <ReactPlayer
+                        url={props.postInfo.Video}
+                        width='100%'
+                        height='100%'
+                        controls={true}
+                        playing={false}
+                    />
+            </VideoWrapper>
         )
     }
     if(props.postInfo.Type === "Ad"){
