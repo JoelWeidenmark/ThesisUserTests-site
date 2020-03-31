@@ -2,7 +2,20 @@
 
 //export const ContextInitState = {Init: [{hello: 1}]};
 export const ContextInitState = {
-    Posts: [{
+    Posts: [
+        {
+            ID: 100,
+            Type: 'AdVideo',
+            Name: "Volvo",
+            TimeStamp: "17:20",
+            Image: "adIkea.jpg",
+            Video: "https://www.youtube.com/watch?v=9u4Ejwfiqlo",
+            Text: '',
+            Likes: 2,
+            LikedByUser: false,
+            Comments: []
+        },
+        {
             ID: 99,
             Type: 'Ad',
             Name: "IKEA",

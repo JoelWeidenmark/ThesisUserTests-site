@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactPlayer from 'react-player';
+
 
 const ImageWrapper = styled.div`
     display: flex;
@@ -17,6 +19,7 @@ const ImageWrapper = styled.div`
     
 `
 
+
 const ImageWrapperAd = styled.div`
     width: 100%;
     height: 100%;
@@ -28,6 +31,13 @@ const ImageWrapperAd = styled.div`
         object-fit: cover;
     }
     
+`
+
+const VideoWrapperAd = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
 `
 
 const AdText = styled.div`
@@ -61,6 +71,24 @@ const PostContet = (props) => {
                 <ImageWrapperAd>
                     <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
                 </ImageWrapperAd>
+                <AdText>
+                    This is an advert by <span>{props.postInfo.Name}</span>
+                </AdText>
+            </>
+        )
+    }
+    if(props.postInfo.Type === "AdVideo"){
+        return (
+            <>
+                <VideoWrapperAd>
+                    <ReactPlayer
+                        url={props.postInfo.Video}
+                        width='100%'
+                        height='100%'
+                        controls={false}
+                        playing={true}
+                    />
+                </VideoWrapperAd>
                 <AdText>
                     This is an advert by <span>{props.postInfo.Name}</span>
                 </AdText>

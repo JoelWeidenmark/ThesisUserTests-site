@@ -24,7 +24,7 @@ const MainFeed = () => {
         <FeedWrapper>
             <AddPost></AddPost>
             {postsState.Posts.map((post, i) => 
-                post.Type === "Ad" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
+                post.Type === "Ad" || post.Type === "AdVideo" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
             )}
         </FeedWrapper>
     )
