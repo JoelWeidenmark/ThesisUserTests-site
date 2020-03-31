@@ -155,6 +155,32 @@ export const ContextInitState = {
         Comments: [
         ]
     },
+    {
+        ID: 7,
+        Type: 'Image',
+        Name: "Jenny Karlsson",
+        TimeStamp: "17:20",
+        Image: "postBowl.jpg",
+        Text: 'Breakfast for champions',
+        Likes: 4,
+        LikedByUser: true,
+        Comments: [
+        ]
+    },
+    {
+        ID: 8,
+        Type: 'Video',
+        Name: "Jim Rasmussen",
+        TimeStamp: "17:20",
+        Video: "https://youtu.be/Gq7yFiki0Qs",
+        Image: "postBowl.jpg",
+        Text: "Some great info from BBC! Stay inside people 🙏",
+        Likes: 4,
+        LikedByUser: false,
+        Comments: [
+
+        ]
+    },
     ]
 }
 
@@ -181,7 +207,7 @@ export const UsersInitState = {
     },
     {
         Name: "Jim Rasmussen",
-        PostIDs: [3],
+        PostIDs: [3, 8],
         ProfileImage: "man1",
         BannerImage: "bannerGlasses",
         Education: "High School",
@@ -221,7 +247,7 @@ export const UsersInitState = {
     },
     {
         Name: "Jenny Karlsson",
-        PostIDs: [],
+        PostIDs: [8],
         ProfileImage: "woman2",
         BannerImage: "bannerMountain",
         Education: "KTH",
