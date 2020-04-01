@@ -9,7 +9,7 @@ import AddPost from "../AddPost/AddPost"
 const FeedWrapper = styled.div`
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 5px 0px 5px 5px;
 `
 
 const ProfileFeed = (props) => {

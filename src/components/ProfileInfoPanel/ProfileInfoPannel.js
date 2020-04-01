@@ -8,8 +8,8 @@ const InfoPanelWrapper = styled.div`
     width: 100%;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
-    padding: 5px;
+    top: 40px;
+    padding: 5px 0px;
     display: flex;
     flex-direction: column;
 `
@@ -42,6 +42,15 @@ const AdWrapper = styled.div`
     border-radius:5px;
     border: 1px solid ${props => props.theme.fbBorderGray}
 `
+
+const AdWrapperNA = styled.div`
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-radius:5px;
+    border: 1px solid ${props => props.theme.fbBorderGray}
+`
+
 
 const ProfileInfoPannel = () => {
     const {getProfile, getActiveUser} = useContext(LocalStateContext);

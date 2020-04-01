@@ -15,9 +15,6 @@ const ProfilePage = (props) => {
         <ProfileFeed profile={getActiveUser()}>
 
         </ProfileFeed>
-          <Link to="/">
-              Go back
-          </Link>
       </LayoutProfile>
     )
 }

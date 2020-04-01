@@ -7,6 +7,8 @@ const Wrapper = styled.div`
     width: 100%;
     height: 250px;
     overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
 
     >img{
         height: 100%;

@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, {useContext} from 'react'
+import {LocalStateContext} from '../../context/LocalStateContext'
 import styled from "styled-components"
 import ProfileBar from "./ProfileBar/ProfileBar"
 
@@ -42,7 +42,21 @@ const LeftPanelAdBox = styled.div`
     }
 `
 
+const LeftPanelAdBoxNA = styled.div`
+    display: flex;
+    height: 350px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+
+    >img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+`
+
 const LeftPanel = () => {
+    const{isAcceptPage} = useContext(LocalStateContext)
+
     return (
         <LeftPanelWrapper>
             <ProfileWrapper>
@@ -51,9 +65,15 @@ const LeftPanel = () => {
                 </ProfileBar>
             </ProfileWrapper>
             <AdWrapper>
-                <LeftPanelAdBox>
-                    <img src={require(`../../images/adCoca.jpg`)}></img>
-                </LeftPanelAdBox>
+                {
+                    isAcceptPage ?
+                    <LeftPanelAdBox>
+                        <img src={require(`../../images/adCoca.jpg`)}></img>
+                    </LeftPanelAdBox>:
+                    <LeftPanelAdBoxNA>
+                        <img src={require(`../../images/adCoca.jpg`)}></img>
+                    </LeftPanelAdBoxNA>
+                }
             </AdWrapper>
         </LeftPanelWrapper>
     )

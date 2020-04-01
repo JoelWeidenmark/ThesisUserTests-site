@@ -7,17 +7,14 @@ import SEO from "../components/seo"
 import MainFeed from "../components/MainFeed/MainFeed.js"
 import { ThemeProvider } from "styled-components"
 import {LocalStateContext} from "../context/LocalStateContext"
-
 import * as theme from "../theme/theme.js"
 
-const IndexPage = () => {
-  
+const IndexNonAccepPage = () => {
   const{setAcceptPage} = useContext(LocalStateContext);
 
   useEffect(() => {
-    setAcceptPage(true)
+    setAcceptPage(false)
   }, [])
-
   return(
   <ThemeProvider theme={theme}>
     <Layout>
@@ -27,4 +24,4 @@ const IndexPage = () => {
   
 )}
 
-export default IndexPage
+export default IndexNonAccepPage

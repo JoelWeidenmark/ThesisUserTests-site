@@ -13,6 +13,7 @@ function PostsStateProvider({children}){
     const [postsState, setPostsState] = useState(ContextInitState);
     const [usersState, setUsersState] = useState(UsersInitState);
     const [activeUser, setActiveUser] = useState("Test User")
+    const [isAcceptPage, setAcceptPage] = useState(true)
 
     const addNewPost = (postText, toUser) =>{
         const today = new Date()
@@ -111,7 +112,7 @@ function PostsStateProvider({children}){
     }
 
     return(
-        <LocalStateProvider value={{postsState, addPostComment, changePostLikes, changeCommentLikes, addNewPost, getProfile, changeActiveUser, getActiveUser}}>
+        <LocalStateProvider value={{postsState, addPostComment, changePostLikes, changeCommentLikes, addNewPost, getProfile, changeActiveUser, getActiveUser, isAcceptPage, setAcceptPage}}>
             {children}
         </LocalStateProvider>
     )

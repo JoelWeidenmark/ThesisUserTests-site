@@ -26,7 +26,7 @@ const ContentPanelsWrapper = styled.div`
 
 const LeftPane = styled.div`
   width: 80%;
-  border: solid;
+  /*border: solid;*/
   display: flex;
   flex-direction: column;
 `
@@ -34,7 +34,8 @@ const LeftPane = styled.div`
 const BannerWrapper = styled.div`
   width: 100%;
   height: 250px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  /*border-radius:5px;*/
 `
 const InfoFeedWrapper = styled.div`
   width: 100%;
@@ -46,17 +47,17 @@ const InfoFeedWrapper = styled.div`
 const InfoPane = styled.div`
   width: 30%;
   height: 100%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const CenterPane = styled.div`
   width: 70%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const RightPane = styled.div`
   width: 20%;
-  border: solid;
+  /*border: solid;*/
 `
 
 const Footer = styled.div`
