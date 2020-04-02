@@ -8,7 +8,7 @@ const ImageWrapper = styled.div`
     width: calc(100% + 30px);
     margin-left: -15px;
     margin-top: 5px;
-    max-height: 400px;
+    max-height: 250px;
     border-top: 1px solid ${props => props.theme.fbBorderGray};
     border-bottom: 1px solid ${props => props.theme.fbBorderGray};
     overflow: hidden;
@@ -111,7 +111,7 @@ const PostContet = (props) => {
                         width='100%'
                         height='100%'
                         controls={false}
-                        playing={true}
+                        playing={false}
                     />
                 </VideoWrapperAd>
                 <AdText>

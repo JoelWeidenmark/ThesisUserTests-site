@@ -1,31 +1,5 @@
-
-
-//export const ContextInitState = {Init: [{hello: 1}]};
 export const ContextInitState = {
     Posts: [
-        {
-            ID: 100,
-            Type: 'AdVideo',
-            Name: "Volvo",
-            TimeStamp: "17:20",
-            Image: "adIkea.jpg",
-            Video: "https://www.youtube.com/watch?v=9u4Ejwfiqlo",
-            Text: '',
-            Likes: 2,
-            LikedByUser: false,
-            Comments: []
-        },
-        {
-            ID: 99,
-            Type: 'Ad',
-            Name: "IKEA",
-            TimeStamp: "17:20",
-            Image: "adIkea.jpg",
-            Text: '',
-            Likes: 2,
-            LikedByUser: false,
-            Comments: []
-        },
         {
         ID: 1,
         Type: 'Image',
@@ -55,6 +29,18 @@ export const ContextInitState = {
         ]
     },
     {
+        ID: 100,
+        Type: 'AdVideo',
+        Name: "Volvo",
+        TimeStamp: "17:20",
+        Image: "adIkea.jpg",
+        Video: "https://www.youtube.com/watch?v=9u4Ejwfiqlo",
+        Text: '',
+        Likes: 2,
+        LikedByUser: false,
+        Comments: []
+    },
+    {
         ID: 2,
         Type: 'Text',
         Name: "Filip Smith",
@@ -82,6 +68,17 @@ export const ContextInitState = {
         TimeStamp: "21:20",
         Image: "null",
         Text: "Just got sick and can't go outside. If anyone can help me with some shopping that would be amazing!",
+        Likes: 2,
+        LikedByUser: false,
+        Comments: []
+    },
+    {
+        ID: 99,
+        Type: 'Ad',
+        Name: "IKEA",
+        TimeStamp: "17:20",
+        Image: "adIkea.jpg",
+        Text: '',
         Likes: 2,
         LikedByUser: false,
         Comments: []
@@ -181,6 +178,17 @@ export const ContextInitState = {
 
         ]
     },
+    {
+        ID: 101,
+        Type: 'Ad',
+        Name: "Nike",
+        TimeStamp: "17:20",
+        Image: "adNike.jpg",
+        Text: '',
+        Likes: 3,
+        LikedByUser: false,
+        Comments: []
+    }
     ]
 }
 

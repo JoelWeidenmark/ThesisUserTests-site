@@ -16,9 +16,9 @@ const ProfileWrapper = styled.div`
 `
 
 const ProfileImage = styled.div`
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
     border-radius: 50%;
     border: 1px solid ${props => props.theme.fbBorderGray};
     overflow: hidden;

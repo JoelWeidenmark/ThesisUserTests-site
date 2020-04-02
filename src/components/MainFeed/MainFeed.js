@@ -14,7 +14,7 @@ const FeedWrapper = styled.div`
 `
 
 const MainFeed = () => {
-    const {postsState, addComment} = useContext(LocalStateContext);
+    const {postsState} = useContext(LocalStateContext);
     const [statePosts, setStatePosts] = useState(postsState)
     useEffect(() => {
         setStatePosts(postsState)

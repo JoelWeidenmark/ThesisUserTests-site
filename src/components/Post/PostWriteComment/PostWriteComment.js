@@ -39,9 +39,10 @@ const TextBox = styled.div`
     height: 100%;
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
     border: 1px solid ${props => props.theme.fbBorderGray};
     border-radius: 15px;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     background-color: ${props => props.theme.fbGray};
     color: ${props => props.theme.fbTextLightGray};
 `

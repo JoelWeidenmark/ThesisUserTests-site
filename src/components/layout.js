@@ -27,17 +27,14 @@ const ContentPanelsWrapper = styled.div`
 
 const LeftPane = styled.div`
   width: 20%;
-  /*border: solid;*/
 `
 
 const CenterPane = styled.div`
   width: 60%;
-  /*border: solid;*/
 `
 
 const RightPane = styled.div`
   width: 20%;
-  /*border: solid;*/
 `
 
 const Footer = styled.div`
@@ -81,9 +78,7 @@ const Layout = ({ children }) => {
           </LayoutWrapper>
         
         <Footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            
         </Footer>
       
     </div>

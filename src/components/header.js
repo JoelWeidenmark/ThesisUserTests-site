@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, {useContext} from "react"
 import styled from "styled-components"
+import {LocalStateContext} from "../context/LocalStateContext"
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -34,18 +35,30 @@ const LogoWrapper = styled.div`
 `
 
 
-const Header = ({ siteTitle}) => (
+const Header = ({ siteTitle}) => {
+  const {isAcceptPage} = useContext(LocalStateContext)
+
+  return(
   <HeaderWrapper>
     <ContentWrapper>
-      <Link to={"/"}>
-        <LogoWrapper>
-          <img src={require(`../images/logoFacebook.png`)}></img>
-        </LogoWrapper>
-      </Link>
+      {
+        isAcceptPage ?
+        <Link to={"/"}>
+          <LogoWrapper>
+            <img src={require(`../images/logoFacebook.png`)}></img>
+          </LogoWrapper>
+        </Link>:
+        <Link to={"/index-non-accep/"}>
+          <LogoWrapper>
+            <img src={require(`../images/logoFacebook.png`)}></img>
+          </LogoWrapper>
+        </Link>
+      }
+      
     </ContentWrapper>
   </HeaderWrapper>
 
-)
+)}
 
 
 

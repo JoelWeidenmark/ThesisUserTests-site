@@ -22,7 +22,13 @@ const PostFrame = styled.div`
 `
 const AdFrame = styled.div`
     border: 1px solid #CCC;
-    height: 270px;
+    height: 300px;
+    width: 100%;
+`
+
+const AdFrameNA = styled.div`
+    border: 1px solid #CCC;
+    height: 450px;
     width: 100%;
 `
 
@@ -65,7 +71,7 @@ const WriteCommentWrapper = styled.div`
 `
  
  const PostAd = (props) => {
-    const {postsState, setPostsState, changePostLikes} = useContext(LocalStateContext)
+    const {postsState, setPostsState, changePostLikes, isAcceptPage} = useContext(LocalStateContext)
     const [commentList, setCommentList] = useState(props.postInfo.Comments);
     
     const likePost = () => {
@@ -79,9 +85,15 @@ const WriteCommentWrapper = styled.div`
 
      return (
         <PostFrame>
-            <AdFrame>
-                <PostContet postInfo={props.postInfo}></PostContet>
-            </AdFrame>
+            {isAcceptPage ?
+                <AdFrame>
+                    <PostContet postInfo={props.postInfo}></PostContet>
+                </AdFrame>:
+                <AdFrameNA>
+                    <PostContet postInfo={props.postInfo}></PostContet>
+                </AdFrameNA>
+            }
+            
             <LikesAndComments>
                 {
                     props.postInfo.LikedByUser ?

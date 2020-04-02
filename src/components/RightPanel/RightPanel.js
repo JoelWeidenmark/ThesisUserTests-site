@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, {useContext} from 'react'
+import {LocalStateContext} from '../../context/LocalStateContext'
 import styled from "styled-components"
 import Birthday from "../Birthday/Birthday"
 
@@ -20,6 +20,7 @@ const BirthdayBar = styled.div`
 
 const AdWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     width: 100%;
     margin-top: 5px;
     border: 1px solid ${props => props.theme.fbBorderGray};
@@ -30,14 +31,50 @@ const AdWrapper = styled.div`
 
 const RightPanelAdBox = styled.div`
     display: flex;
+    height: 200px;
     border: 1px solid ${props => props.theme.fbBorderGray};
 
     >img{
+        height: 100%;
         width: 100%;
+        object-fit: cover;
     }
 `
 
+const RightPanelAdBoxNA = styled.div`
+    display: flex;
+    height: 350px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+
+    >img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+`
+
+const AdText = styled.div`
+    font-size: 0.75rem;
+    margin-top: 5px;
+    margin-left: 1px;
+    color: ${props => props.theme.fbTextGray};
+    >span{
+        color: ${props => props.theme.fbBlue}
+    }
+`
+
+const CopyrightWrapper = styled.div`
+    margin-top: 5px;
+    width: 100%;
+    font-size: 0.7rem;
+    color: ${props => props.theme.fbTextGray};
+    padding: 5px;
+
+`
+
 const RightPanel = () => {
+    const{isAcceptPage} = useContext(LocalStateContext)
+
     return (
         <RightPanelWrapper>
             <BirthdayBar>
@@ -46,10 +83,23 @@ const RightPanel = () => {
                 </Birthday>
             </BirthdayBar>
             <AdWrapper>
-                <RightPanelAdBox>
-                    <img src={require(`../../images/adRedbull.jpg`)}></img>
-                </RightPanelAdBox>
+                {
+                    isAcceptPage ? 
+                    <RightPanelAdBox>
+                        <img src={require(`../../images/adNetflix.jpg`)}></img>
+                    </RightPanelAdBox>:
+                    <RightPanelAdBoxNA>
+                        <img src={require(`../../images/adNetflix.jpg`)}></img>
+                    </RightPanelAdBoxNA>
+                }
+                <AdText>
+                    Advert by <span>Netflix</span>
+                </AdText>
             </AdWrapper>
+            <CopyrightWrapper>
+                © {new Date().getFullYear()}, Built with
+                {` `}Gatsby
+            </CopyrightWrapper>
         </RightPanelWrapper>
     )
 }

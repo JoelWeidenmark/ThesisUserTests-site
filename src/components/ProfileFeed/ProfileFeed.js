@@ -4,8 +4,6 @@ import styled from "styled-components"
 import PostText from "../Post/PostText/PostText"
 import AddPost from "../AddPost/AddPost"
 
-
-
 const FeedWrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -16,16 +14,10 @@ const ProfileFeed = (props) => {
    
     const {postsState} = useContext(LocalStateContext);
     
-
     const getProfilePosts = () => {
         return postsState.Posts.filter((post) => (post.Name === props.profile || post.To === props.profile))
     }
     const profilePosts = getProfilePosts();
-    
-    /*
-    useEffect(() => {
-        profilePosts = getProfilePosts()
-    }, [postsState])*/
     
     return(
         <FeedWrapper>

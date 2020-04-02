@@ -112,9 +112,6 @@ const LayoutProfile = ({ children }) => {
           </LayoutWrapper>
         
         <Footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
         </Footer>
       
     </div>
