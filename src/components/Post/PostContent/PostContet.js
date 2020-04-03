@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useContext} from 'react';
+import styled, {keyframes}from 'styled-components';
 import ReactPlayer from 'react-player';
+import {LocalStateContext} from "../../../context/LocalStateContext"
 
 
 const ImageWrapper = styled.div`
@@ -17,6 +18,20 @@ const ImageWrapper = styled.div`
         width:100%;
     }
     
+`
+
+const pulse = keyframes`
+  0% {
+    transform: scale(0.98);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100%{
+    transform: scale(0.98);
+  }
 `
 
 const VideoWrapper = styled.div`
@@ -45,6 +60,20 @@ const ImageWrapperAd = styled.div`
     
 `
 
+const ImageWrapperAdAnimate = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    animation: ${pulse} 2s infinite;
+    >img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+`
+
 const VideoWrapperAd = styled.div`
     width: 100%;
     height: 100%;
@@ -62,6 +91,9 @@ const AdText = styled.div`
 `
 
 const PostContet = (props) => {
+
+    const {isAcceptablePage} = useContext(LocalStateContext)
+
 
     if(props.postInfo.Type === "Text"){
         return (
@@ -102,6 +134,18 @@ const PostContet = (props) => {
             </>
         )
     }
+    if(props.postInfo.Type === "AdAnimate"){
+        return (
+            <>
+                <ImageWrapperAdAnimate>
+                    <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
+                </ImageWrapperAdAnimate>
+                <AdText>
+                    This is an advert by <span>{props.postInfo.Name}</span>
+                </AdText>
+            </>
+        )
+    }
     if(props.postInfo.Type === "AdVideo"){
         return (
             <>
@@ -111,7 +155,7 @@ const PostContet = (props) => {
                         width='100%'
                         height='100%'
                         controls={false}
-                        playing={false}
+                        playing={!isAcceptablePage}
                     />
                 </VideoWrapperAd>
                 <AdText>

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {LocalStateContext} from '../../context/LocalStateContext'
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 import Birthday from "../Birthday/Birthday"
 
 const RightPanelWrapper = styled.div`
@@ -12,6 +12,21 @@ const RightPanelWrapper = styled.div`
     position: sticky;
     top: 40px;
 `
+
+const pulse = keyframes`
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100%{
+    transform: scale(0.95);
+  }
+`
+
 
 const BirthdayBar = styled.div`
     display: flex;
@@ -43,8 +58,9 @@ const RightPanelAdBox = styled.div`
 
 const RightPanelAdBoxNA = styled.div`
     display: flex;
-    height: 350px;
+    height: 200px;
     border: 1px solid ${props => props.theme.fbBorderGray};
+    animation: ${pulse} 2s infinite;
 
     >img{
         height: 100%;

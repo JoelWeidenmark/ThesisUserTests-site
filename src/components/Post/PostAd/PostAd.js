@@ -22,7 +22,7 @@ const PostFrame = styled.div`
 `
 const AdFrame = styled.div`
     border: 1px solid #CCC;
-    height: 300px;
+    height: 280px;
     width: 100%;
 `
 

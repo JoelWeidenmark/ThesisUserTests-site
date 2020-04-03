@@ -180,7 +180,7 @@ export const ContextInitState = {
     },
     {
         ID: 101,
-        Type: 'Ad',
+        Type: 'AdAnimate',
         Name: "Nike",
         TimeStamp: "17:20",
         Image: "adNike.jpg",

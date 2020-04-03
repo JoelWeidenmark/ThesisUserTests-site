@@ -14,17 +14,36 @@ const FeedWrapper = styled.div`
 `
 
 const MainFeed = () => {
-    const {postsState} = useContext(LocalStateContext);
+    const {postsState, isAcceptPage} = useContext(LocalStateContext);
     const [statePosts, setStatePosts] = useState(postsState)
     useEffect(() => {
         setStatePosts(postsState)
     }, [postsState])
 
+    const reorderedPosts = () => {
+            let adList = []
+            //const postList = []
+
+            adList = postsState.Posts.reduce((acc, post) => {
+                if(post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate"){
+                    return [...acc, post]
+                }
+                else{
+                    return [...acc]
+                }
+                
+            },[]
+            )
+            console.log(adList)
+    }
+    reorderedPosts()
+
+
     return (
         <FeedWrapper>
             <AddPost></AddPost>
             {postsState.Posts.map((post, i) => 
-                post.Type === "Ad" || post.Type === "AdVideo" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
+                post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
             )}
         </FeedWrapper>
     )
