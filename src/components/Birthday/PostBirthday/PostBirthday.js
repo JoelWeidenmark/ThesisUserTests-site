@@ -51,7 +51,7 @@ const PostBirthday = () => {
     const {checkItem} = useContext(TaskContext)
 
     const postClick = () => {
-        checkItem(8);
+        //checkItem(8);
         const postValue = birthdayMessage.current.value;
         setIsBirthdayOpen();
         if(postValue){

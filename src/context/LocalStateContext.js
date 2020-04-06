@@ -39,6 +39,7 @@ function PostsStateProvider({children}){
         });
         setPostsState({Posts: [postObject, ...postsState.Posts]});
         checkItem(7)
+        if(toUser === "Olivia Stevens")checkItem(8)
     }
 
     const addPostComment = (postID, commentText) => {
@@ -82,6 +83,7 @@ function PostsStateProvider({children}){
         })
         
         //Check task 2 or 5
+
         if(postID === 6 || postID === 9 ){
             postID === 6 ? checkItem(2) : checkItem(5)
         }
