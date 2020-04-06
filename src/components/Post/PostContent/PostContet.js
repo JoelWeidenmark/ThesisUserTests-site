@@ -92,7 +92,7 @@ const AdText = styled.div`
 
 const PostContet = (props) => {
 
-    const {isAcceptablePage} = useContext(LocalStateContext)
+    const {isAcceptPage} = useContext(LocalStateContext)
 
 
     if(props.postInfo.Type === "Text"){
@@ -137,9 +137,16 @@ const PostContet = (props) => {
     if(props.postInfo.Type === "AdAnimate"){
         return (
             <>
-                <ImageWrapperAdAnimate>
-                    <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
-                </ImageWrapperAdAnimate>
+                {isAcceptPage ? 
+                    <ImageWrapperAd>
+                        <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
+                    </ImageWrapperAd>
+                    :
+                    <ImageWrapperAdAnimate>
+                        <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
+                    </ImageWrapperAdAnimate>
+                }
+                
                 <AdText>
                     This is an advert by <span>{props.postInfo.Name}</span>
                 </AdText>
@@ -155,13 +162,22 @@ const PostContet = (props) => {
                         width='100%'
                         height='100%'
                         controls={false}
-                        playing={!isAcceptablePage}
+                        playing={!isAcceptPage}
+                        volume={0}
+                        muted={true}
                     />
                 </VideoWrapperAd>
                 <AdText>
                     This is an advert by <span>{props.postInfo.Name}</span>
                 </AdText>
             </>
+        )
+    }
+    if(props.postInfo.Type === "Link"){
+        return (
+            <ImageWrapper>
+                <img src={require(`../../../images/${props.postInfo.Image}`)}></img>
+            </ImageWrapper>
         )
     }
 }

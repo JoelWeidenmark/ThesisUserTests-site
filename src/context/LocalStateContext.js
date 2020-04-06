@@ -1,5 +1,6 @@
-import React, {useState, createContext, useEffect} from 'react'
+import React, {useState, createContext, useEffect, useContext} from 'react'
 import {ContextInitState, UsersInitState} from "./ContextInitState";
+import {TaskContext} from "./TaskContext"
 
 
 //const ContextProvider = createContext(ContextInitState) 
@@ -12,8 +13,9 @@ const LocalStateProvider = LocalStateContext.Provider;
 function PostsStateProvider({children}){
     const [postsState, setPostsState] = useState(ContextInitState);
     const [usersState, setUsersState] = useState(UsersInitState);
-    const [activeUser, setActiveUser] = useState("Test User")
-    const [isAcceptPage, setAcceptPage] = useState(true)
+    const [activeUser, setActiveUser] = useState("Test User");
+    const [isAcceptPage, setAcceptPage] = useState(true);
+    const {checkItem} = useContext(TaskContext);
 
     const addNewPost = (postText, toUser) =>{
         const today = new Date()
@@ -36,6 +38,7 @@ function PostsStateProvider({children}){
             (user.Name == "Test User" || user.Name == toUser ? {...user, PostIDs: [...user.PostIDs, newPostID]} : user))
         });
         setPostsState({Posts: [postObject, ...postsState.Posts]});
+        checkItem(7)
     }
 
     const addPostComment = (postID, commentText) => {
@@ -60,7 +63,9 @@ function PostsStateProvider({children}){
         {...post, Comments: [...post.Comments, commentObject]} 
         : post)};
         setPostsState(newState);
-        
+
+        //Check task 3
+        if(postID === 7)checkItem(3)
     }
 
     const changePostLikes = (postID) => {
@@ -75,6 +80,11 @@ function PostsStateProvider({children}){
                 : post
             )
         })
+        
+        //Check task 2 or 5
+        if(postID === 6 || postID === 9 ){
+            postID === 6 ? checkItem(2) : checkItem(5)
+        }
 
     }
 
@@ -105,6 +115,7 @@ function PostsStateProvider({children}){
 
     const changeActiveUser = (userName) => {
         setActiveUser(userName)
+        if(userName === "Jim Rasmussen")checkItem(4)
     }
 
     const getActiveUser = () => {

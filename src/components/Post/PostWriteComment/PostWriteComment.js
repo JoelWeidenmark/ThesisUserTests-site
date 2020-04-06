@@ -96,7 +96,7 @@ const PostWriteComment = (props) => {
                         placeholder="Write a comment ..."
                     />
 
-                    <SendCommentButton onClick={postCommentClick}><FontAwesomeIcon icon={faPlay} /></SendCommentButton>
+                    <SendCommentButton onClick={() => postCommentClick()}><FontAwesomeIcon icon={faPlay} /></SendCommentButton>
                 </TextBox>
             </ColumnWrapper> 
         </CommentWrapper>

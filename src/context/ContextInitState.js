@@ -121,7 +121,7 @@ export const ContextInitState = {
         Image: "",
         Text: 'Hi! Just got laid off work because of the Corona pandemic so will be spending quite a lot of time doing nothing for the next few days! If anyone needs help with shopping or the like, feel free to hit me up! ',
         Likes: 5,
-        LikedByUser: true,
+        LikedByUser: false,
         Comments: [{
             ID: 1,
             Name: "Jim Rasmussen",
@@ -188,7 +188,21 @@ export const ContextInitState = {
         Likes: 3,
         LikedByUser: false,
         Comments: []
-    }
+    },
+    {
+        ID: 9,
+        Type: 'Link',
+        Name: "Jim Rasmussen",
+        TimeStamp: "17:20",
+        Link: "https://food52.com/blog/25135-easy-coronavirus-quarantine-recipes",
+        Image: "postRecipe.jpg",
+        Text: "Some easy to do recipes for anyone who's in quarantine! It's really important, now more than ever, to remember to use the food in our cupboards before bying heaps of groceries! Take care of each other and don't hoard 🙏",
+        Likes: 4,
+        LikedByUser: false,
+        Comments: [
+
+        ]
+    },
     ]
 }
 
@@ -215,7 +229,7 @@ export const UsersInitState = {
     },
     {
         Name: "Jim Rasmussen",
-        PostIDs: [3, 8],
+        PostIDs: [3, 8, 9],
         ProfileImage: "man1",
         BannerImage: "bannerGlasses",
         Education: "High School",

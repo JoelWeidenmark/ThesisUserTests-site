@@ -98,6 +98,11 @@ const PostText = (props) => {
             <TextContent>
                 
                 {props.postInfo.Text}
+                {props.postInfo.Link ?
+                    <a href={props.postInfo.Link}>
+                        {props.postInfo.Link}
+                    </a>
+                    :""}
             </TextContent>
             <PostContet postInfo={props.postInfo}></PostContet>
             <LikesAndComments >

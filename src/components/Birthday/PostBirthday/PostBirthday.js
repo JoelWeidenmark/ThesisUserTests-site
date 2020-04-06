@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Textarea from 'react-expanding-textarea'
 import {LocalStateContext} from "../../../context/LocalStateContext"
 import {BirthdayStateContext} from "../../../context/BirthdayContext"
+import {TaskContext} from "../../../context/TaskContext"
 
 
 
@@ -47,8 +48,10 @@ const PostBirthday = () => {
     const birthdayMessage = useRef(null);
     const {addNewPost} = useContext(LocalStateContext);
     const {setIsBirthdayOpen} = useContext(BirthdayStateContext)
+    const {checkItem} = useContext(TaskContext)
 
     const postClick = () => {
+        checkItem(8);
         const postValue = birthdayMessage.current.value;
         setIsBirthdayOpen();
         if(postValue){

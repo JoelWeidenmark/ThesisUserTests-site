@@ -10,6 +10,7 @@
 import React from "react"
 import {PostsStateProvider} from "./src/context/LocalStateContext";
 import {BirthdayProvider} from "./src/context/BirthdayContext";
+import {TaskStateProvider} from "./src/context/TaskContext"
 import { ThemeProvider } from "styled-components"
 import * as theme from "./src/theme/theme"
 import { types, transitions, positions, Provider as AlertProvider } from 'react-alert'
@@ -29,11 +30,13 @@ const options = {
 export const wrapRootElement = ({ element }) => (
     <ThemeProvider theme={theme}>
         <AlertProvider template={AlertTemplate} {...options}>
-            <BirthdayProvider>
-                <PostsStateProvider>
-                    {element}
-                </PostsStateProvider>
-            </BirthdayProvider>
+            <TaskStateProvider>
+                <BirthdayProvider>
+                    <PostsStateProvider>
+                        {element}
+                    </PostsStateProvider>
+                </BirthdayProvider>
+            </TaskStateProvider>
         </AlertProvider>
     </ThemeProvider>
   )

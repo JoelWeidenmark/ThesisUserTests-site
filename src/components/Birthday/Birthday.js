@@ -35,9 +35,7 @@ const WriteBdPostWrapper = styled.div`
 
 
 const Birthday = () => {
-
     const {isBirthdayOpen, setIsBirthdayOpen} = useContext(BirthdayStateContext)
-    console.log(isBirthdayOpen)
     return (
         <BirthdayWrapper >
             <BirthdayPerson onClick={() => (setIsBirthdayOpen(!isBirthdayOpen))}>

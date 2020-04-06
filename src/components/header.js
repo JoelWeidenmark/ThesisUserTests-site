@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React, {useContext} from "react"
 import styled from "styled-components"
 import {LocalStateContext} from "../context/LocalStateContext"
+import {TaskContext} from "../context/TaskContext"
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -37,6 +38,7 @@ const LogoWrapper = styled.div`
 
 const Header = ({ siteTitle}) => {
   const {isAcceptPage} = useContext(LocalStateContext)
+  const {checkItem} = useContext(TaskContext)
 
   return(
   <HeaderWrapper>
@@ -44,7 +46,7 @@ const Header = ({ siteTitle}) => {
       {
         isAcceptPage ?
         <Link to={"/"}>
-          <LogoWrapper>
+          <LogoWrapper onClick={() => checkItem(6)}>
             <img src={require(`../images/logoFacebook.png`)}></img>
           </LogoWrapper>
         </Link>:
