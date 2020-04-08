@@ -92,7 +92,14 @@ export const ContextInitState = {
         Text: 'Cat!',
         Likes: 1,
         LikedByUser: false,
-        Comments: []
+        Comments: [{
+            ID: 1,
+            Name: "Jim Rasmussen",
+            Text: `TEST`,
+            Likes: 1,
+            LikedByUser: true,
+            Image: null
+            }]
     },
     {
         ID: 5,

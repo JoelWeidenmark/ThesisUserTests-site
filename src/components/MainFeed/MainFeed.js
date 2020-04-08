@@ -48,19 +48,43 @@ const MainFeed = () => {
             )
 
             //nonAcceptList = [...nonAcceptList, postList];
-            nonAcceptList = [adList[0], ...postList];
-
+            nonAcceptList = [...postList];
+            adList.forEach((element, iter) => {
+                nonAcceptList.splice(iter * 3, 0, element)
+            });
+            return nonAcceptList
+            //console.log(nonAcceptList)
             //console.log(adList)
     }
-    reorderedPosts()
+    
+    let newList = reorderedPosts()
 
 
     return (
         <FeedWrapper>
             <AddPost></AddPost>
-            {postsState.Posts.map((post, i) => 
-                post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate" ? <PostAd postInfo={post} key={i}/> : <PostText postInfo={post} key={i}/>
-            )}
+            {/*
+                postsState.Posts.map((post, i) => 
+                    post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate" ? 
+                    <PostAd postInfo={post} key={i}/> 
+                    : <PostText postInfo={post} key={i}/>
+                )
+            */}
+
+            {
+                isAcceptPage ?
+                postsState.Posts.map((post, i) => 
+                    post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate" ? 
+                    <PostAd postInfo={post} key={i}/> 
+                    : <PostText postInfo={post} key={i}/>
+                ):
+                newList.map((post, i) => 
+                    post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate" ? 
+                    <PostAd postInfo={post} key={i}/> 
+                    : <PostText postInfo={post} key={i}/>
+                )
+
+            }
         </FeedWrapper>
     )
 }

@@ -76,18 +76,13 @@ const WriteCommentWrapper = styled.div`
 
 
 const PostText = (props) => {
-    const {postsState, setPostsState, changePostLikes} = useContext(LocalStateContext)
-    const [commentList, setCommentList] = useState(props.postInfo.Comments);
-    
+    const {changePostLikes} = useContext(LocalStateContext)    
     const likePost = () => {
 
         changePostLikes(props.postInfo.ID)
     }
-    
-    useEffect(() => {
-        setCommentList(props.postInfo.Comments)
-    }, [postsState])
 
+    const commentList = props.postInfo.Comments;
     return (
         <PostFrame>
             <ProfileBar>
@@ -122,8 +117,9 @@ const PostText = (props) => {
             <CommentsField>
                 {
                     commentList.map((commentInfo, i) =>(
-                    <PostComment comment={{commentInfo, setPostsState}} postID={props.postInfo.ID} key={i}></PostComment>
-                ))}
+                        <PostComment comment={{commentInfo}} postID={props.postInfo.ID} key={i}></PostComment>
+                    ))
+                }
             </CommentsField>
             <WriteCommentWrapper>
                 <PostWriteComment postInfo={props.postInfo}>

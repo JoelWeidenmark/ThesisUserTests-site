@@ -71,19 +71,15 @@ const WriteCommentWrapper = styled.div`
 `
  
  const PostAd = (props) => {
-    const {postsState, setPostsState, changePostLikes, isAcceptPage} = useContext(LocalStateContext)
-    const [commentList, setCommentList] = useState(props.postInfo.Comments);
+    const {changePostLikes, isAcceptPage} = useContext(LocalStateContext)
     
     const likePost = () => {
-
         changePostLikes(props.postInfo.ID)
     }
-    
-    useEffect(() => {
-        setCommentList(props.postInfo.Comments)
-    }, [postsState])
 
-     return (
+    const commentList = props.postInfo.Comments;
+
+    return (
         <PostFrame>
             {isAcceptPage ?
                 <AdFrame>
@@ -109,9 +105,10 @@ const WriteCommentWrapper = styled.div`
             </LikesAndComments>
             <CommentsField>
                 {
-                    commentList.map((commentInfo, i) =>(
-                    <PostComment comment={{commentInfo, setPostsState}} postID={props.postInfo.ID} key={i}></PostComment>
-                ))}
+                    commentList.map((commentInfo, i) => (
+                        <PostComment comment={{commentInfo}} postID={props.postInfo.ID} key={i}></PostComment>
+                    ))
+                }
             </CommentsField>
             <WriteCommentWrapper>
                 <PostWriteComment postInfo={props.postInfo}>
