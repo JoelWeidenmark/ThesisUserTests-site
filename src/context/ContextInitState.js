@@ -153,7 +153,7 @@ export const ContextInitState = {
         ]
     },
     {
-        ID: 7,
+        ID: 10,
         Type: 'Image',
         Name: "Jenny Karlsson",
         TimeStamp: "17:20",
@@ -269,8 +269,8 @@ export const UsersInitState = {
     },
     {
         Name: "Jenny Karlsson",
-        PostIDs: [8],
-        ProfileImage: "woman2",
+        PostIDs: [7],
+        ProfileImage: "profileW",
         BannerImage: "bannerMountain",
         Education: "KTH",
         Work: "Ericsson",

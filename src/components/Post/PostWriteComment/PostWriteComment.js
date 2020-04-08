@@ -2,7 +2,7 @@ import React, {useState, useRef, useContext} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faComment, faShare, faPlay, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import Textarea from 'react-expanding-textarea'
+import TextareaAutosize from 'react-autosize-textarea';
 import {LocalStateContext} from "../../../context/LocalStateContext"
 
 const CommentWrapper = styled.div`
@@ -46,7 +46,7 @@ const TextBox = styled.div`
     background-color: ${props => props.theme.fbGray};
     color: ${props => props.theme.fbTextLightGray};
 `
-const TextBoxes = styled(Textarea)`
+const TextBoxes = styled(TextareaAutosize)`
     border: none;
     resize: none; 
     width: 80%;

@@ -1,6 +1,6 @@
 import React, {useRef, useContext} from 'react'
 import styled from 'styled-components'
-import Textarea from 'react-expanding-textarea'
+import TextareaAutosize from 'react-autosize-textarea';
 import {LocalStateContext} from "../../context/LocalStateContext"
 
 
@@ -34,6 +34,7 @@ const CreatePostBorder = styled.div`
 
 const WritePostWrapper = styled.div`
     width: 95%;
+    height: auto;
     display: flex;
     display-direction: row;
     margin-top: 5px;
@@ -55,7 +56,7 @@ const ProfileImage = styled.div`
     }
 
 `
-const TextBox = styled(Textarea)`
+const TextBox = styled(TextareaAutosize)`
     margin-left: 5px;
     width: 80%;
     border: none;
@@ -85,7 +86,6 @@ const PostButton = styled.div`
 
 
 const AddPost = (props) => {
-
     const postText = useRef(null);
     const {addNewPost, getProfile} = useContext(LocalStateContext);
     const handlePostClick = () => {
@@ -118,7 +118,7 @@ const AddPost = (props) => {
                 <TextBox
                     ref={postText}
                     placeholder="What's on your mind?"
-                />
+                    />
             </WritePostWrapper>
             <PostButton onClick={() => handlePostClick()}><span>Post</span></PostButton>
             

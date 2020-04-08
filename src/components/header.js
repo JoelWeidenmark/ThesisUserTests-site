@@ -51,7 +51,7 @@ const Header = ({ siteTitle}) => {
           </LogoWrapper>
         </Link>:
         <Link to={"/index-non-accep/"}>
-          <LogoWrapper>
+          <LogoWrapper onClick={() => checkItem(6)}>
             <img src={require(`../images/logoFacebook.png`)}></img>
           </LogoWrapper>
         </Link>

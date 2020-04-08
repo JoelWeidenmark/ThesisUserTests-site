@@ -1,6 +1,6 @@
 import React, {useContext, useRef} from 'react'
 import styled from "styled-components"
-import Textarea from 'react-expanding-textarea'
+import TextareaAutosize from 'react-autosize-textarea';
 import {LocalStateContext} from "../../../context/LocalStateContext"
 import {BirthdayStateContext} from "../../../context/BirthdayContext"
 import {TaskContext} from "../../../context/TaskContext"
@@ -16,7 +16,7 @@ const PostWrapper = styled.div`
     padding: 5px;
 `
 
-const TextBox = styled(Textarea)`
+const TextBox = styled(TextareaAutosize)`
     width: 100%;
     border: 1px solid ${props => props.theme.fbBorderGray};
     resize: none;

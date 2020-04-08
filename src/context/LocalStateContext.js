@@ -66,7 +66,7 @@ function PostsStateProvider({children}){
         setPostsState(newState);
 
         //Check task 3
-        if(postID === 7)checkItem(3)
+        if(postID === 10)checkItem(3)
     }
 
     const changePostLikes = (postID) => {

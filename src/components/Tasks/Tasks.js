@@ -135,6 +135,7 @@ const Tasks = () => {
     const {taskList, isOpen, setIsOpen, checkItem} = useContext(TaskContext);
 
     const openClose = () => {
+        console.log("RUNNING")
         setIsOpen(!isOpen);
     }
 
@@ -166,8 +167,8 @@ const Tasks = () => {
                 {
                     taskList.Tasks.map((item, iter) =>(
                         item.IsFinished ?
-                        <Task complete>{(iter + 1) + " - " + item.Text}</Task>
-                        : <Task>{(iter + 1) + " - " + item.Text}</Task>
+                        <Task complete key={iter}>{(iter + 1) + " - " + item.Text}</Task>
+                        : <Task key={iter}>{(iter + 1) + " - " + item.Text}</Task>
                     ))
                 }
             </ItemsWrapper>

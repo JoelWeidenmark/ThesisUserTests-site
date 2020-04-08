@@ -27,7 +27,7 @@ export const TaskInitState = {
         },
         {
             Num: 6,
-            Text: "GO to the main feed (click the logo in the top LEFT corner)",
+            Text: "CLICK the logo in the top left corner to go back to the main feed",
             IsFinished: false
         },
         {

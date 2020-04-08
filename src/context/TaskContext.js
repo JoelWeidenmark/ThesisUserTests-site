@@ -11,12 +11,20 @@ const TaskStateProvider = ({children}) => {
     const [isOpen, setIsOpen] = useState(true)
     
     const checkItem = (itemNum) => {
-        setTaskList(
-            {Tasks: taskList.Tasks.map((item) =>(
-                item.Num == itemNum ? {...item, IsFinished: true} : item
-            ))
-            } 
-        )
+
+        if(isCorrectOrder(itemNum)){
+            setTaskList(
+                {Tasks: taskList.Tasks.map((item) =>(
+                    item.Num == itemNum ? {...item, IsFinished: true} : item
+                ))
+                } 
+            )
+        }
+    }
+
+    const isCorrectOrder = (itemNum) => {
+        const taskInOrder = taskList.Tasks.find((item) => (item.IsFinished === false ))
+        return taskInOrder.Num === itemNum ?  true :  false 
     }
 
     return(

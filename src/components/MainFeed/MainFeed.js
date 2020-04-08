@@ -22,7 +22,8 @@ const MainFeed = () => {
 
     const reorderedPosts = () => {
             let adList = []
-            //const postList = []
+            let postList = []
+            let nonAcceptList = []
 
             adList = postsState.Posts.reduce((acc, post) => {
                 if(post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate"){
@@ -34,7 +35,22 @@ const MainFeed = () => {
                 
             },[]
             )
-            console.log(adList)
+
+            postList = postsState.Posts.reduce((acc, post) => {
+                if(post.Type === "Ad" || post.Type === "AdVideo" || post.Type === "AdAnimate"){
+                    return [...acc]
+                }
+                else{
+                    return [...acc, post]
+                }
+                
+            },[]
+            )
+
+            //nonAcceptList = [...nonAcceptList, postList];
+            nonAcceptList = [adList[0], ...postList];
+
+            //console.log(adList)
     }
     reorderedPosts()
 
