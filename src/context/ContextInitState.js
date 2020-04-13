@@ -44,17 +44,17 @@ export const ContextInitState = {
         ID: 2,
         Type: 'Text',
         Name: "Filip Smith",
-        To: "Sara Jonsson",
+        To: "Jim Rasmussen",
         TimeStamp: "18:20",
         Image: "postBeach.jpg",
-        Text: 'Thailand flight canceled... Lucky you!',
+        Text: 'Thailand flight canceled...',
         Likes: 3,
         LikedByUser: false,
         Comments: [
             {
                 ID: 1,
-                Name: "Sara Jonsson",
-                Text: `Woop! Let's go next year instead! 😍`,
+                Name: "Jim Rasmussen",
+                Text: `God damn it...`,
                 Likes: 2,
                 LikedByUser: false,
                 Image: null
@@ -92,33 +92,18 @@ export const ContextInitState = {
         Text: 'Cat!',
         Likes: 1,
         LikedByUser: false,
-        Comments: [{
-            ID: 1,
-            Name: "Jim Rasmussen",
-            Text: `TEST`,
-            Likes: 1,
-            LikedByUser: true,
-            Image: null
-            }]
+        Comments: []
     },
     {
-        ID: 5,
-        Type: 'Image',
-        Name: "Olivia Stevens",
+        ID: 101,
+        Type: 'AdAnimate',
+        Name: "Nike",
         TimeStamp: "17:20",
-        Image: "postWood.jpg",
-        Text: 'Morning Walk!',
-        Likes: 1,
+        Image: "adNike.jpg",
+        Text: '',
+        Likes: 3,
         LikedByUser: false,
-        Comments: [{
-            ID: 1,
-            Name: "Filip Smith",
-            Text: `Early riser I see 🙌`,
-            Likes: 0,
-            LikedByUser: false,
-            Image: null
-            }
-        ]
+        Comments: []
     },
     {
         ID: 6,
@@ -139,9 +124,28 @@ export const ContextInitState = {
             },
             {
             ID: 2,
-            Name: "Jenny Karlsson",
+            Name: "Oscar Andersson",
             Text: `❤️❤️❤️`,
             Likes: 1,
+            LikedByUser: false,
+            Image: null
+            }
+        ]
+    },
+    {
+        ID: 5,
+        Type: 'Image',
+        Name: "Olivia Stevens",
+        TimeStamp: "17:20",
+        Image: "postWood.jpg",
+        Text: 'Morning Walk!',
+        Likes: 1,
+        LikedByUser: false,
+        Comments: [{
+            ID: 1,
+            Name: "Filip Smith",
+            Text: `Early riser I see 🙌`,
+            Likes: 0,
             LikedByUser: false,
             Image: null
             }
@@ -186,17 +190,6 @@ export const ContextInitState = {
         ]
     },
     {
-        ID: 101,
-        Type: 'AdAnimate',
-        Name: "Nike",
-        TimeStamp: "17:20",
-        Image: "adNike.jpg",
-        Text: '',
-        Likes: 3,
-        LikedByUser: false,
-        Comments: []
-    },
-    {
         ID: 9,
         Type: 'Link',
         Name: "Jim Rasmussen",
@@ -236,7 +229,7 @@ export const UsersInitState = {
     },
     {
         Name: "Jim Rasmussen",
-        PostIDs: [3, 8, 9],
+        PostIDs: [2, 3, 8, 9],
         ProfileImage: "man1",
         BannerImage: "bannerGlasses",
         Education: "High School",
@@ -266,7 +259,7 @@ export const UsersInitState = {
     },
     {
         Name: "Sara Jonsson",
-        PostIDs: [2, 6],
+        PostIDs: [6],
         ProfileImage: "woman2",
         BannerImage: "bannerMountain",
         Education: "KTH",

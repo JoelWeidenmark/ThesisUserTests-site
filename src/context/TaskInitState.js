@@ -22,7 +22,7 @@ export const TaskInitState = {
         },
         {
             Num: 5,
-            Text: "FIND the post written by Jim Rasmussen about recipes. LIKE this post",
+            Text: "FIND and READ the post written by Jim Rasmussen about recipes. LIKE this post",
             IsFinished: false
         },
         {
