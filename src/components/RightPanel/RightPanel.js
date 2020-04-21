@@ -15,7 +15,7 @@ const RightPanelWrapper = styled.div`
 
 const pulse = keyframes`
   0% {
-    transform: scale(0.95);
+    transform: scale(0.90);
   }
 
   50% {
@@ -23,7 +23,7 @@ const pulse = keyframes`
   }
 
   100%{
-    transform: scale(0.95);
+    transform: scale(0.90);
   }
 `
 

@@ -22,7 +22,7 @@ const ImageWrapper = styled.div`
 
 const pulse = keyframes`
   0% {
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
 
   50% {
@@ -30,7 +30,7 @@ const pulse = keyframes`
   }
 
   100%{
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
 `
 
