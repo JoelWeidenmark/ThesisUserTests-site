@@ -11,7 +11,7 @@ import Header from "./header"
 
 const FadeIn = keyframes`
   from{
-    transform: translateX(230px);
+    transform: translateX(280px);
   }
 
   to{
@@ -25,7 +25,7 @@ const FadeOut = keyframes`
   }
 
   to{
-    transform: translateX(230px);
+    transform: translateX(280px);
   }
 `;
 
@@ -89,7 +89,7 @@ const Footer = styled.div`
 `
 const TaskPane = styled.div`
   display: flex;
-  width: 270px;
+  width: 320px;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0);
   position: fixed;
@@ -102,7 +102,7 @@ const TaskPane = styled.div`
 
 const TaskPaneOpen = styled.div`
   display: flex;
-  width: 270px;
+  width: 320px;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0);
   position: fixed;
@@ -112,12 +112,12 @@ const TaskPaneOpen = styled.div`
 `
 const TaskPaneClosed = styled.div`
   display: flex;
-  width: 270px;
+  width: 320px;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0);
   position: fixed;
   z-index: 100;
-  right: -230px;
+  right: -280px;
   bottom: 0;
 `
 
