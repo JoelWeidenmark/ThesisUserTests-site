@@ -2,7 +2,7 @@ export const TaskInitState = {
     Tasks: [
         {
             Num: 1,
-            Text: "Click Start",
+            Text: "Click the Start button above",
             IsFinished: false
         },
         {
@@ -38,6 +38,11 @@ export const TaskInitState = {
         {
             Num: 8,
             Text: "WRITE a birthday message to Olivia Stevens",
+            IsFinished: false
+        },
+        {
+            Num: 9,
+            Text: "Go to the Questionnaire! (Click the button below)",
             IsFinished: false
         }
     ]

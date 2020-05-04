@@ -22,6 +22,9 @@ const HeaderWrapper = styled.div`
 const ContentWrapper = styled.div`
   width: 80vw;
   max-width: 830px;
+  >a{
+    text-decoration: none;
+  }
 `
 
 const LogoWrapper = styled.div`
@@ -35,6 +38,21 @@ const LogoWrapper = styled.div`
   }
 `
 
+const Logo = styled.div`
+  height: 30px;
+  width: 30px;
+  border: solid 1px white;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  
+  color: ${props => props.theme.fbBlue};
+`
+
 
 const Header = ({ siteTitle}) => {
   const {isAcceptPage} = useContext(LocalStateContext)
@@ -42,18 +60,18 @@ const Header = ({ siteTitle}) => {
 
   return(
   <HeaderWrapper>
-    <ContentWrapper>
+    <ContentWrapper onClick={() => checkItem(6)}>
       {
         isAcceptPage ?
         <Link to={"/"}>
-          <LogoWrapper onClick={() => checkItem(6)}>
-            <img src={require(`../images/logoFacebook.png`)}></img>
-          </LogoWrapper>
+          <Logo >
+            FB
+          </Logo>
         </Link>:
         <Link to={"/index-non-accep/"}>
-          <LogoWrapper onClick={() => checkItem(6)}>
-            <img src={require(`../images/logoFacebook.png`)}></img>
-          </LogoWrapper>
+          <Logo>
+            FB
+          </Logo>
         </Link>
       }
       

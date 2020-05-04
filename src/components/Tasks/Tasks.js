@@ -1,5 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
+import { Link } from "gatsby"
 import {TaskContext} from "../../context/TaskContext"
+import {LocalStateContext} from "../../context/LocalStateContext"
 import styled, {keyframes} from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft, faArrowCircleLeft  } from "@fortawesome/free-solid-svg-icons";
@@ -43,6 +45,9 @@ const ItemsWrapper = styled.div`
     background-color: ${props => props.theme.fbLightGray};
     padding: 5px;
     border-radius: 5px;
+    >a{
+        text-decoration: none;
+    }
 `
 
 
@@ -98,16 +103,21 @@ const TextWrapper = styled.div`
     align-items: center;
     justify-content: center;
     text-align:center;
-    font-size: 0.8rem;
+    flex-direction: column;
+    font-size: 0.9rem;
     margin-top: 5px;
     margin-bottom: 15px;
-    color: ${props => props.theme.fbTextGray}
+    color: ${props => props.theme.fbTextGray};
+    >span{
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
 `
 const HeadlineWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-top: 5px;
     color: ${props => props.theme.fbTextGray}
@@ -129,9 +139,26 @@ const StartButton = styled.div`
         cursor: pointer;
     } 
 `
+const LinkButton = styled.div`
+    height: 30px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${props => props.theme.fbBlue};
+    border-radius: 5px;
+    border: 1px solid ${props => props.theme.fbBorderGray};
+    color: white;
+    margin-bottom: 15px;
+    :hover{
+        background-color: ${props => props.theme.fbLightBlue};
+        cursor: pointer;
+    } 
+`
+
 
 const Tasks = () => {
-
+    const {isAcceptPage} = useContext(LocalStateContext)
     const {taskList, isOpen, setIsOpen, checkItem} = useContext(TaskContext);
 
     const openClose = () => {
@@ -155,7 +182,7 @@ const Tasks = () => {
                     Hello and Welcome!
                 </HeadlineWrapper>
                 <TextWrapper>
-                     Complete the following tasks from 1 to 8 <br/>Click the arrow to hide or show the tasks
+                     Complete the following tasks from 1 to 9 <br/> <span>(Click the arrow to hide or show the task box)</span>
                 </TextWrapper>
                 <StartButton onClick={() => checkItem(1)}>
                     Start!
@@ -171,6 +198,20 @@ const Tasks = () => {
                         : <Task key={iter}>{(iter + 1) + " - " + item.Text}</Task>
                     ))
                 }
+                {
+                    isAcceptPage ?
+                    <a href={"https://docs.google.com/forms/d/e/1FAIpQLSca_vwv0-kinIZTH522bLDziYXH6bpHSbCTRGFk484-sNB-xA/viewform?usp=sf_link"}>
+                        <LinkButton onClick={() => checkItem(9)}>
+                            Go to Questionnaire
+                        </LinkButton>
+                    </a>:
+                    <a href={"https://docs.google.com/forms/d/e/1FAIpQLSe-WaeBMzbs-QZxOpsdaq5UsSsupdkEcLFAbc9VJJPCM4D69g/viewform?usp=sf_link"}>
+                        <LinkButton onClick={() => checkItem(9)}>
+                            Go to Questionnaire
+                        </LinkButton>
+                    </a>
+                }
+                
             </ItemsWrapper>
         </TaskWrapper>
     )
