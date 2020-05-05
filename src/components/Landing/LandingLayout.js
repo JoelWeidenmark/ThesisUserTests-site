@@ -98,6 +98,9 @@ const LandingLayout = () => {
                             Complete the tasks and go through the questionnaire to complete the study.
                             <br/>
                             <br/>
+                            Please not that the test is made for computers and <b>NOT</b> for mobile devices.
+                            <br/>
+                            <br/>
                             Your participation will be completely anonymous
                             <br/>
                             <br/>
